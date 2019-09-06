@@ -264,7 +264,7 @@
                         <tr>
                             <th width="50%">Select Course</th>
                             <td><select name="course" required="">
-                                    <option value="">Course</option>
+                                    <option value="" selected disabled>Course</option>
                                     <option value="BE">BE</option>
                                     <option value="ME">ME</option>
                                 </select>
@@ -274,7 +274,7 @@
                             <th>Select Branch</th>
                             <td> 
                                 <select name="branch" required="">
-                                    <option value="">Select Branch</option>
+                                    <option value="" selected disabled>Select Branch</option>
                                     <option value="Computer Engineering">Computer Engineering</option>
                                     <option value="Electronics And Telecommunication Engineering">Electronics And Telecommunication Engineering</option>
                                     <option value="Information Technology">Information Technology</option>
@@ -287,7 +287,7 @@
                         <tr>
                             <th>Select Semester</th>
                             <td><select  name="sem" required="">
-                                    <option value="">Select sem</option>
+                                    <option value="" selected disabled>Select sem</option>
                                     <option value="1">1Sem</option>
                                     <option value="2">2Sem</option>
                                     <option value="3">3Sem</option>
@@ -326,7 +326,7 @@
                                     Select Status:
                                 </th>
                                 <td><select name="status"  id="status" style="width:130px" required="">
-                                        <option value="">Select Status</option>
+                                        <option value="" selected disabled>Select Status</option>
                                         <option value="Regular">Regular</option>
                                         <option value="Ex">Ex</option>
                                     </select>
@@ -336,7 +336,7 @@
                                 Select Branch:
                             </th>
                             <td><select name="branch" style="width:130px" required="">
-                                    <option value="">Select Branch</option>
+                                    <option value=""selected disabled>Select Branch</option>
                                     <option value="Computer Engineering">Computer Engineering</option>
                                     <option value="Electronics And Telecommunication Engineering">Electronics And Telecommunication Engineering</option>
                                     <option value="Information Technology">Information Technology</option>
@@ -352,7 +352,7 @@
                                 </th>
                                 <td>
                                     <select name="sem" style="width:130px" required="">
-                                        <option value="">Select sem</option>
+                                        <option value=""selected disabled>Select sem</option>
                                         <option value="1">1Sem</option>
                                         <option value="2">2Sem</option>
                                         <option value="3">3Sem</option>
@@ -418,32 +418,7 @@
              <button class="accordion" style="top:360px;position: absolute;"  id="bt7">Upload Subject Schema </button>
             <div class="panel">
                 <div id="one">
-                    <table>
-                        <tr>
-                            <th class="semStyle"><a href="schema.jsp?sem=1 " >Sem 1</a> </th>
-                            <th class="semStyle"><a href="schema.jsp?sem=2 " >Sem 2</a> </th>
-                            <th class="semStyle"><a href="schema.jsp?sem=3" >Sem 3</a> </th>
-                            <th class="semStyle"><a href="schema.jsp?sem=4" >Sem 4</a> </th>
-                        </tr>
-                        <tr></tr>
-                        <tr>
-                            <th class="semStyle"><a href="schema.jsp?sem=5" >Sem 5</a></th>
-                            <th class="semStyle"><a href="schema.jsp?sem=6" >Sem 6</a> </th>
-                            <th class="semStyle"><a href="schema.jsp?sem=7" >Sem 7</a> </th>
-                            <th class="semStyle"><a href="schema.jsp?sem=8" >Sem 8</a> </th>
-                        </tr>
-                    </table>
-                </div>
-              </div>
-                 
-
-
-            <button class="accordion" style="top:410px;position: absolute;"  id="bt7">Eligible Student</button>
-            <!--<button class="accordion" style="position:absolute;" id="bt1">Student List ( For Deletion )</button>-->
-            <div class="panel" style="position: absolute;margin-top: 5%;">
-
-
-                <form action="eligible_student.jsp">
+                   <form action="eligible_student.jsp">
                     <table>
                         <tr><td style="text-align: center;"> <h2 style="color:#800000">Eligible Student List</h2></td></tr>
                     </table>
@@ -451,9 +426,10 @@
                         <tr>
                             <th width="50%">Select Course</th>
                             <td><select name="course" required="">
-                                    <option value="">Course</option>
+                                    <option value="" selected disabled>Course</option>
                                     <option value="BE">BE</option>
                                     <option value="ME">ME</option>
+                                    <option value="ME">MSC</option>
                                 </select>
                             </td>
                         </tr>
@@ -461,7 +437,7 @@
                             <th>Select Branch</th>
                             <td> 
                                 <select name="branch" required="">
-                                    <option value="">Select Branch</option>
+                                    <option value=""selected disabled>Select Branch</option>
                                     <option value="Computer Engineering">Computer Engineering</option>
                                     <option value="Electronics And Telecommunication Engineering">Electronics And Telecommunication Engineering</option>
                                     <option value="Information Technology">Information Technology</option>
@@ -474,7 +450,75 @@
                         <tr>
                             <th>Select Semester</th>
                             <td><select  name="sem" required="">
-                                    <option value="">Select sem</option>
+                                    <option value="" selected disabled>Select sem</option>
+                                    <option value="1">1Sem</option>
+                                    <option value="2">2Sem</option>
+                                    <option value="3">3Sem</option>
+                                    <option value="4">4Sem</option>
+                                    <option value="5">5Sem</option>   
+                                    <option value="6">6Sem</option>
+                                    <option value="7">7Sem</option>
+                                    <option value="8">8Sem</option>
+
+                                </select></td>
+                        </tr>
+                         <tr>
+                            <th>Select Course Type</th>
+                            <td><select  name="ctype" required="">
+                                    <option value="" selected disabled>Select Course Type</option>
+                                    <option value="PT">PT</option>
+                                    <option value="FT">FT</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">  <input type="hidden" value="0" name="i">
+                                <input type="submit" value="SUBMIT" class="button" required=""></td>
+                        </tr>
+                    </table><br>
+
+                </form>
+                </div>
+              </div>
+                 
+
+
+            <button class="accordion" style="top:410px;position: absolute;"  id="bt7">Eligible Student</button>
+            <!--<button class="accordion" style="position:absolute;" id="bt1">Student List ( For Deletion )</button>-->
+            <div class="panel" style="position: absolute;margin-top: 5%;">
+
+
+                <form action="eligible_stud.jsp">
+                    <table>
+                        <tr><td style="text-align: center;"> <h2 style="color:#800000">Eligible Student List</h2></td></tr>
+                    </table>
+                    <table style="border-style:solid;" >
+                        <tr>
+                            <th width="50%">Select Course</th>
+                            <td><select name="course" required="">
+                                    <option value="" selected disabled>Course</option>
+                                    <option value="BE">BE</option>
+                                    <option value="ME">ME</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Select Branch</th>
+                            <td> 
+                                <select name="branch" required="">
+                                    <option value="" selected disabled>Select Branch</option>
+                                    <option value="Computer Engineering">Computer Engineering</option>
+                                    <option value="Electronics And Telecommunication Engineering">Electronics And Telecommunication Engineering</option>
+                                    <option value="Information Technology">Information Technology</option>
+                                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                    <option value="Civil Engineering">Civil Engineering</option>
+                                    <option value="Electronics And Instrumentation Engineering">Electronics And Instrumentation Engineering</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Select Semester</th>
+                            <td><select  name="sem" required="">
+                                    <option value="" selected disabled>Select sem</option>
                                     <option value="1">1Sem</option>
                                     <option value="2">2Sem</option>
                                     <option value="3">3Sem</option>
@@ -512,7 +556,7 @@
                         <tr>
                             <th width="50%">Select Course</th>
                             <td><select name="course" required="">
-                                    <option value="">Course</option>
+                                    <option value="" selected disabled>Course</option>
                                     <option value="BE">BE</option>
                                     <option value="ME">ME</option>
                                 </select>
@@ -522,7 +566,7 @@
                             <th>Select Branch</th>
                             <td> 
                                 <select name="branch" required="">
-                                    <option value="">Select Branch</option>
+                                    <option value="" selected disabled>Select Branch</option>
                                     <option value="Computer Engineering">Computer Engineering</option>
                                     <option value="Electronics And Telecommunication Engineering">Electronics And Telecommunication Engineering</option>
                                     <option value="Information Technology">Information Technology</option>
@@ -535,7 +579,7 @@
                         <tr>
                             <th>Select Semester</th>
                             <td><select  name="sem" required="">
-                                    <option value="">Select sem</option>
+                                    <option value="" selected disabled>Select sem</option>
                                     <option value="1">1Sem</option>
                                     <option value="2">2Sem</option>
                                     <option value="3">3Sem</option>
@@ -572,7 +616,7 @@
 
                         <tr> <th>Student status</th>
                             <td><select style="width:160px; height:27px" name="status" required="">
-                                    <option value="">Select student status</option>
+                                    <option value="" selected disabled>Select student status</option>
                                     <option value="Regular">Regular</option>
                                     <option value="Ex">Ex</option>
                                 </select></td></tr>
@@ -580,7 +624,7 @@
                         <tr>
                             <th>Select semester</th>
                             <td><select style="width:160px;height:27px" name="sem" required="">
-                                    <option value="">Select Sem</option>
+                                    <option value="" selected disabled>Select Sem</option>
                                     <option value="1">1Sem</option>
                                     <option value="2">2Sem</option>
                                     <option value="3">3Sem</option>
@@ -621,7 +665,7 @@
                             <th>Select Branch</th>
                             <td> 
                                 <select name="branch" required="">
-                                    <option value="">Select Branch</option>
+                                    <option value="" selected disabled>Select Branch</option>
                                     <option value="Computer Engineering">Computer Engineering</option>
                                     <option value="Electronics And Telecommunication Engineering">Electronics And Telecommunication Engineering</option>
                                     <option value="Information Technology">Information Technology</option>
@@ -635,7 +679,7 @@
                         <tr>
                             <th>Select Semester</th>
                             <td><select  name="sem" required="">
-                                    <option value="">Select sem</option>
+                                    <option value=""selected disabled>Select sem</option>
                                     <option value="1">1Sem</option>
                                     <option value="2">2Sem</option>
                                     <option value="3">3Sem</option>
@@ -651,7 +695,7 @@
                         <tr>
                             <th>Select Status </th>
                             <td><select name="status" id="status_reg" required="">
-                                    <option value="">Select status</option>
+                                    <option value="" selected disabled>Select status</option>
                                     <option value="Regular">Regular</option>
                                     <option value="Ex">Ex</option>
                                 </select></td>
@@ -659,7 +703,7 @@
                         <tr>
                             <th>Registered/Not-Registered</th>
                             <td><select name="reg" required="">
-                                    <option value="">Select status</option>
+                                    <option value="" selected disabled>Select status</option>
                                     <option value="Paid">Registered</option>
                                     <option value="Unpaid">Not Registered</option>
                                     <option value="Both">Both</option>

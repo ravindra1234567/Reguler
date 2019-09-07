@@ -463,8 +463,8 @@
                                 <th>Select Course Type</th>
                                 <td><select  name="ctype" required="">
                                         <option value="" selected disabled>Select Course Type</option>
-                                        <option value="1">PT</option>
-                                        <option value="0">FT</option>
+                                        <option value="P">PT</option>
+                                        <option value="F">FT</option>
                                     </select></td>
                             </tr>
                             <tr>
@@ -618,7 +618,7 @@
                                 <th>Select Branch</th>
                                 <td> 
                                     <select name="branch" required="">
-                                        <option value=""selected disabled>Select Branch</option>
+                                        <option value="" selected disabled>Select Branch</option>
                                         <option value="Computer Engineering">Computer Engineering</option>
                                         <option value="Electronics And Telecommunication Engineering">Electronics And Telecommunication Engineering</option>
                                         <option value="Information Technology">Information Technology</option>
@@ -647,8 +647,8 @@
                                 <th>Select Course Type</th>
                                 <td><select  name="ctype" required="">
                                         <option value="" selected disabled>Select Course Type</option>
-                                        <option value="1">PT</option>
-                                        <option value="0">FT</option>
+                                        <option value="P">PT</option>
+                                        <option value="F">FT</option>
                                     </select></td>
                             </tr>
                             <tr>

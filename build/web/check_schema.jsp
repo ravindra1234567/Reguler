@@ -45,17 +45,16 @@ td, th {
 </header>
     <body style="margin-bottom: 100px;">
         <%! HttpSession session1;
-        String uname,uname1;
-        String pass,pass1;
-        String query,query3;
-        String sem;
+        String subjectcode;
+        String subjectname;
+        String theory;
+        String practical ;
         String branch;
-        String payment_status,status;
-        String eno,roll_no;
-        String name;
-        String query1,query2;
-        PreparedStatement pd;
         String course;
+        int sem;
+        String coursetype ;
+        String query;
+        PreparedStatement pd;
         ResultSet rs;
           
         String photourl;
@@ -67,7 +66,7 @@ td, th {
             Connection con=DriverManager.getConnection(context.getInitParameter("Url"),context.getInitParameter("UserName"),context.getInitParameter("Password"));
 		
              try{
-          session1=request.getSession();
+      /*    session1=request.getSession();
         
     uname=(String)session1.getAttribute("uname");
     
@@ -79,65 +78,74 @@ td, th {
       {
           response.sendRedirect("admin.jsp");
       }
-                                
+         */                       
        
-           branch = request.getParameter("branch");
-       int  sem = Integer.parseInt(request.getParameter("sem"));
-//                  out.println(year);
-        String course = request.getParameter("course");
-        int ctype = Integer.parseInt(request.getParameter("ctype"));
+          
+           
+           
+               
+      //  payment_status=request.getParameter("payment_status");
+      
+        sem= Integer.parseInt(request.getParameter("sem"));
+       // status=request.getParameter("status");
+     
+        branch=request.getParameter("branch");
+        course=request.getParameter("course");
+        coursetype=request.getParameter("ctype");
         
-        query2="select   distinct(roll_no),application_id,name,photourl,branch,all_students.sem from all_students,schema_table where branch=? and all_students.sem=? and status = 0 and status1= 0 ";
         
-        pd=con.prepareStatement(query2);
-        pd.setString(1,branch);
- 
-        pd.setInt(2,sem);
-        rs=pd.executeQuery();
            
         %>
         
      
-   
+        <button onclick=" window.history.back();">GoBack</button>
            <table border radius="1" style="border-collapse:collapse;margin-top: 20px;" width="800px" >
                <tr>
                    
                     <th><center>Sno.</center></th>
-                   <th><center>Roll Number</center></th>
-                   <th><center>NAME</center></th>
-                   <th><center>BRANCH</center></th>
-                   <th><center>SEMESTER</center></th>
-                    <th><center>Transection Id</center></th>
-                   <th><center>Slip</center></th>
+                   <th><center>Subject Code</center></th>
+                   <th><center>Subject Name</center></th>
+                   <th><center>Theory Credit</center></th>
+                   <th><center>Practical Credit</center></th>
+                    <th><center>Course</center></th>
+                   <th><center>Course Type</center></th>
                </tr>
-        <%       
+        <%    
+            query="select  subject_code,subject_name,theory_credits,practical_credits,course,sem ,coursetype from subject_table,schema_table where  branch=? and sem=? and course=? and coursetype=? and subject_code=subcode";
+        
+        pd=con.prepareStatement(query);
+        pd.setString(1,branch);
+ 
+        pd.setInt(2,sem);
+        pd.setString(3,course);
+        pd.setString(4,coursetype );
+        rs=pd.executeQuery();
          int i=1;
             while(rs.next()){
   
-           name=(rs.getString("name")).toUpperCase();
+           subjectcode=rs.getString("subject_code");
+           //out.println(subjectcode );
 //           eno=(rs.getString("enrollment_no")).toUpperCase();
-           roll_no=(rs.getString("roll_no")).toUpperCase();
-            photourl=rs.getString("photourl");
-            transection_id=rs.getString("application_id");
+           subjectname=rs.getString("subject_name");
+            theory =rs.getString("theory_credits");
+            practical =rs.getString("practical_credits");
+            sem = rs.getInt("sem");
+            coursetype = rs.getString("coursetype");
             //out.println(photourl);
            %>
             <tr><td><center><%= i %></center></td>
-           <td><center><%=roll_no%></center></td>
-           <td><center><%= name %></center></td>
-           <td><center><%= branch %></center></td>
+           <td><center><%=subjectcode%></center></td>
+           <td><center><%= subjectname %></center></td>
+           <td><center><%= theory %></center></td>
+           <td><center><%= practical  %></center></td>
            <td><center><%= sem %></center></td>
-           <td><center><%= transection_id %></center></td>
-           <td><img src="image/<%= photourl %>" class="img-thumbnail" alt="" width="200" height="136"></td>
+           <td><center><%= coursetype  %></center></td>
+           <!--<td><img src="image/<%= photourl %>" class="img-thumbnail" alt="Cinque Terre" width="200" height="136"></td>-->
            </tr>
            
            <% 
             i = i+1;
-            }}
-                else    
-                {
-                response.sendRedirect("admin.jsp");
-                }
-                  
+            }
          }
 catch(Exception e){
                          out.println(e+"skn");}

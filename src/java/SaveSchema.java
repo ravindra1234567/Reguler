@@ -44,7 +44,7 @@ public class SaveSchema extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String branch = null;
         int sem;
-       int ctype;
+       String ctype;
         String course = null;
         int status1 = 0;
 
@@ -52,7 +52,7 @@ public class SaveSchema extends HttpServlet {
         sem = Integer.parseInt(request.getParameter("sem"));
 //                  out.println(year);
         course = request.getParameter("course");
-        ctype = Integer.parseInt(request.getParameter("ctype"));
+        ctype = request.getParameter("ctype");
 
         try (PrintWriter out = response.getWriter()) {
             try {
@@ -85,7 +85,7 @@ public class SaveSchema extends HttpServlet {
                 if (subject_code != null) {
                     if (!subject_code.equals("")) {
                         ps.setString(3, course);
-                        ps.setInt(4, ctype);
+                        ps.setString(4, ctype);
                         ps.setString(5, subject_code);
                         ps.setInt(6, subject_type);
                         try {

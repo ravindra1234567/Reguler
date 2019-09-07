@@ -71,7 +71,7 @@
           int sem = Integer.parseInt(request.getParameter("sem"));
 //                  out.println(year);
           String course = request.getParameter("course");
-           int ctype = Integer.parseInt(request.getParameter("ctype"));
+           String ctype = request.getParameter("ctype");
                 Class.forName(pageContext.getServletContext().getInitParameter("Driver"));
                 Connection con = DriverManager.getConnection(pageContext.getServletContext().getInitParameter("Url"), pageContext.getServletContext().getInitParameter("UserName"), pageContext.getServletContext().getInitParameter("Password"));
 

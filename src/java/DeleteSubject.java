@@ -54,14 +54,13 @@ public class DeleteSubject extends HttpServlet {
             
             String sem=(String)session.getAttribute("sem");
             String sc=request.getParameter("subcode");
-        String st=request.getParameter("subtype");
-         String class_id=(String)request.getParameter("class_id");
-            String class_full_name=(String)request.getParameter("class_full_name");
+            String st=request.getParameter("subtype");
+            String ctype = request.getParameter("ctype");
            String course=(String)request.getParameter("course");
+           String branch = request.getParameter("branch");
         out.println(sc);
         out.println(st);
-        out.println(sem);
-        out.println(class_id);
+        //out.println(sem);
         
         String qr="delete from schema_table where subcode=? and subtype=? ";
         PreparedStatement ps=con.prepareStatement(qr);
@@ -71,7 +70,7 @@ public class DeleteSubject extends HttpServlet {
 //        ps.setInt(4,Integer.parseInt(sem));
         int n=ps.executeUpdate();
         //out.println("rows deleted:"+n);
-        response.sendRedirect("subjectAlloc.jsp?course="+course+"&class_id="+class_id+"&class_full_name="+class_full_name);
+        response.sendRedirect("subjectAlloc.jsp?course="+course+"&sem="+sem+"&ctype="+ctype+"&branch="+branch);
         }
     }
 

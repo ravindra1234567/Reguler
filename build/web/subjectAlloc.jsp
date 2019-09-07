@@ -55,12 +55,8 @@
 //            {
 //                response.sendRedirect("panel.jsp");
 //            }
-                 String branch = request.getParameter("branch");
-                  String year = request.getParameter("year");
-//                  out.println(year);
-                String course = request.getParameter("course");
-                String class_id = request.getParameter("class_id");
-                String class_full_name = request.getParameter("class_full_name");
+                
+                //String class_full_name = request.getParameter("class_full_name");
                 
                 
                
@@ -70,7 +66,12 @@
                 session.setAttribute("class_full_name", class_full_name);
                 session.setAttribute("course", course);
                 */
-                int sem = Integer.parseInt((String) session.getAttribute("sem"));
+               // int sem = Integer.parseInt((String) session.getAttribute("sem"));
+                 String  branch = request.getParameter("branch");
+          int sem = Integer.parseInt(request.getParameter("sem"));
+//                  out.println(year);
+          String course = request.getParameter("course");
+           int ctype = Integer.parseInt(request.getParameter("ctype"));
                 Class.forName(pageContext.getServletContext().getInitParameter("Driver"));
                 Connection con = DriverManager.getConnection(pageContext.getServletContext().getInitParameter("Url"), pageContext.getServletContext().getInitParameter("UserName"), pageContext.getServletContext().getInitParameter("Password"));
 
@@ -90,12 +91,12 @@
             <hr>
             <div class="row">
                 <div class="col-12 text-capitalize h4 text-info" >
-                    <h1 align="center"> Faculty Class Allocation</h1>
+                    <h1 align="center"> Subject Allocation</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="offset-4 col-4">
-                    <h1 align="center">  <a class="btn btn-info" href="schema.jsp?sem=<%=sem%>" >View All Class</a></h1>
+                    <!--<h1 align="center">  <a class="btn btn-info" href="schema.jsp?sem=<%=sem%>" >View All Class</a></h1>-->
                 </div>
             </div>
             <hr>
@@ -113,19 +114,19 @@
                                     <td><%=course%></td>
                                 </tr>
                                 <tr>
-                                    <td>Class Id</td>
-                                    <td><%=class_id%></td>
+                                    <td>Semester</td>
+                                    <td><%=sem%></td>
                                 </tr>
                                 <tr>
-                                    <td>Class Name</td>
-                                    <td><%=class_full_name%></td>
+                                    <td>Branch</td>
+                                    <td><%=branch%></td>
                                 </tr>
                               
-                                    <input type="text" value="<%= branch %>" name="branch" name = "branch" hidden  />
+                                    <input type="text" value="<%= branch %>" name = "branch" hidden  />
                                     <input type="text" value="<%= course %>" name = "course" hidden />
-                                    <input type="text" value="<%= year %>" name="year" name = "year" hidden />
-                                     <input type="text" value="<%= class_id %>"  name = "class_id" hidden />
-                                      <input type="text" value="<%= class_full_name %>" name="class_full_name" hidden />
+                                    <input type="text" value="<%= sem %>" name = "sem" hidden />
+                                     <input type="text" value="<%= ctype %>"  name = "ctype" hidden />
+                                      
 
 
                                 <% for (int k = 0; k < 8; k++) {%> 
@@ -184,41 +185,53 @@
                             <%
 
                                 //String qr1="select subject_name,subject_code,subtype from subject_table,schema_table where subject_code in(select subcode from schema_table where classid="+class_id+") and sem="+sem;
-                                String qr1 = "select distinct(subject_name),subcode,subtype from schema_table,subject_table where subcode=subject_code and classid='"+class_id+"' and sem='"+sem+"'";
+                                //String qr1 = "select distinct(subject_name),subcode,subtype from schema_table,subject_table where subcode=subject_code and classid='"+class_id+"' and sem='"+sem+"'";
+                              try{
+                                String qr1 = "select  subject_name,subcode,subtype from schema_table,subject_table where subject_code=subcode and branch='"+branch+"' and sem='"+sem+"' and coursetype='"+ctype+"' and course='"+course+"'";
 
                                 PreparedStatement ps1 = con.prepareStatement(qr1);
 
                                 ResultSet rs1 = ps1.executeQuery();
                                 int i = 1;
                                 while (rs1.next()) {
-                                    String sn = rs1.getString(1);
-                                    String sc = rs1.getString(2);
-                                    String st1 = rs1.getString(3);
+                                    String sn = rs1.getString("subject_name");
+                                      //out.println(sn);
+                                    String sc = rs1.getString("subcode");
+                                    //out.println(sc);
+//                                    String sc = rs1.getString("subject_code");
+                                    String st1 = rs1.getString("subtype");
+                                      //out.println(st1);
                                     String st = "";
                                     if (st1.equals("0")) {
                                         st += "T";
                                     } else if (st1.equals("1")) {
                                         st += "P";
                                     } else {
-                                        st += "T+P";
-                                    }
+                                        st += "T+P";}
+                                    
                             %><tr>
-                                <td><%=i++%></td>
-                                <td><%=sc%></td>
-                                <td><%=sn%></td>
-                                <td><%=st%></td>
+                                <td><%= i++%></td>
+                                <td><%= sc%></td>
+                                <td><%= sn %></td>
+                                <td><%= st%></td>
+                                
                                 <td class="hidden-print">
                                     <form action="DeleteSubject" method="post">
                                         <input type="hidden" value="<%=sc%>" name="subcode"/>  
                                         <input type="hidden" value="<%=st1%>" name="subtype"/>
-                                        <input type="hidden" value="<%=course %>" name="course"/>  
-                                        <input type="hidden" value="<%=class_id %>" name="class_id"/>
-                                        <input type="hidden" value="<%=class_full_name %>" name="class_full_name"/>  
+                                        <input type="hidden" value="<%=branch%>" name="branch"/>
+                                        <input type="hidden" value="<%=ctype%>" name="ctype"/>
+                                        <input type="hidden" value="<%=sem%>" name="sem"/>
+                                        <input type="hidden" value="<%=course %>" name="course"/>
                                         <input type="submit" class="btn btn-primary" value="Delete"/>
                                     </form>
                                 </td>  
                             </tr>
-                            <% }%>
+                            <% 
+                                }
+                              }
+                            catch(Exception e)
+                                    {out.println(e);}%>
 
                         </tbody>
                     </table>

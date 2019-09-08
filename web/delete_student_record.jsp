@@ -10,6 +10,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="input/logo.png">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="css/sol.css">
         <style>
 table {
     font-family: arial, sans-serif;
@@ -27,7 +31,7 @@ td, th {
 
 
 </style>
-        <title>Payment Status</title>
+        <title>Delete Student</title>
     </head>
     <header>
 <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
@@ -107,7 +111,7 @@ td, th {
         %>
         
      
-   
+         <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
            <table border radius="1" style="border-collapse:collapse;margin-top: 20px;" width="800px" >
                <tr>
                    
@@ -139,7 +143,7 @@ td, th {
            <td><center><%= branch %></center></td>
            <td><center><%= sem %></center></td>
            <td><center><%= status %></center></td>
-           <td><center><a href="delete_ex.jsp?roll_no=<%= roll_no %>" >DELETE</a></center></td>
+           <td><center><a href="delete_student.jsp?roll_no=<%= roll_no %>" >DELETE</a></center></td>
            </tr>
            
            <% 

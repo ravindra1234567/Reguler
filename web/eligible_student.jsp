@@ -17,6 +17,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="input/logo.png">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="css/sol.css">
         <style>
 table {
     font-family: arial, sans-serif;
@@ -105,7 +109,7 @@ td, th {
         branch=request.getParameter("branch");
         course=request.getParameter("course");
         
-        query2="select   distinct(roll_no),application_id,name,photourl,branch,all_students.sem from all_students,schema_table where branch=? and all_students.sem=? and status = 1 and status1=1";
+        query2="select roll_no,application_id,name,photourl,branch,sem from all_students where branch=? and all_students.sem=? and status = 1 ";
         
         pd=con.prepareStatement(query2);
         pd.setString(1,branch);
@@ -116,7 +120,7 @@ td, th {
         %>
         
      
-   
+             <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
            <table border radius="1" style="border-collapse:collapse;margin-top: 20px;" width="800px" >
                <tr>
                    

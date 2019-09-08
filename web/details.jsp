@@ -256,7 +256,7 @@
             <div class="panel" style="position: absolute;margin-top: 5%;">
 
                     
-                <form action="payment_status.jsp">
+                <form action="delete_student_record.jsp">
                     <table>
                         <tr><td style="text-align: center;"> <h2 style="color:#800000">Student List</h2></td></tr>
                     </table>
@@ -267,6 +267,7 @@
                                     <option value="" selected disabled>Course</option>
                                     <option value="BE">BE</option>
                                     <option value="ME">ME</option>
+                                    <option value="MSC">MSC</option>
                                 </select>
                             </td>
                         </tr>
@@ -484,7 +485,7 @@
             <div class="panel" style="position: absolute;margin-top: 5%;">
 
 
-                <form action="eligible_stud.jsp">
+                <form action="eligible_student.jsp">
                     <table>
                         <tr><td style="text-align: center;"> <h2 style="color:#800000">Eligible Student List</h2></td></tr>
                     </table>
@@ -495,6 +496,7 @@
                                     <option value="" selected disabled>Course</option>
                                     <option value="BE">BE</option>
                                     <option value="ME">ME</option>
+                                    <option value="MSC">MSC</option>
                                 </select>
                             </td>
                         </tr>
@@ -556,6 +558,7 @@
                                     <option value="" selected disabled>Course</option>
                                     <option value="BE">BE</option>
                                     <option value="ME">ME</option>
+                                    <option value="MSC"> MSC </option>
                                 </select>
                             </td>
                         </tr>

@@ -81,22 +81,51 @@
              int sem=Integer.parseInt(String.valueOf(sem1));
              String sub_type=name.substring(7,8);*/
             String str = fileName;
+            String branch,branch1,sem,section,year,course;
+			//String str = "BF_1YR_MECH_3.csv";
             out.println("Ravindra : " + str);
+			out.println("Length = "+ str.length());
             String str4 = str.substring(0, str.length() - 4);
-            String str2 = str4.substring(4, str4.length() - 2);
-            String str3 = str2.substring(str2.length() - 1);
-
-            out.println("last character CSV: " + str4);
-            out.println("<br>");
-            year = str4.substring(0, 3);
-            out.println("<br>");
-            out.println("Branch Name : " + str2);
-            out.println("<br>");
-            branch1 = str2.substring(0, str2.length() - 1);
+			String str5 = str4.substring(0,1);
+			out.println("course = "+str5);
+			String coursetype  = str4.substring(1,2);
+			out.println("course type = "+coursetype);
+			
+			out.println("last character CSV: " + str4);
+			String course1 = str4.substring(0,2);
+			out.println("course1 = "+course1);
+            String str2 = str4.substring(7, str4.length() - 2);
+			out.println("Branch Name : " + str2);
+			branch1 = str2.substring(0, str2.length()  -1);
             branch = str2;
+			out.println("Branch = "+ branch1);
+
+            String str3 = str2.substring(str2.length() - 1);
+			out.println("Last Charector : " + str3);
+            
+			out.println("<br>");
+            year = str4.substring(3, 6);
+            out.println("Year = " + year);
+            
             out.println("<br>");
-            out.println("Last Charector : " + str3);
             out.println("<br>");
+
+            out.println("<br>");
+			if(course1.equals("MS"))
+			{
+				course = "MSC";
+                                coursetype = "F";
+			}
+			else{
+			if(str5.equals("B")){
+				course = "BE";
+			}
+			else{
+				course = "ME";
+				//System.out.println("course = "+course);
+			}
+			}
+			out.println("course= "+course);
             section = "A";
             if (str3.equals("A") || str3.equals("B")) {
                 if (str3.equals("A")) {
@@ -109,8 +138,8 @@
                     branch = branch1;
                 }
             }
-            out.println("Section : " + section);
-            out.println("<br>");
+            System.out.println("Section : " + section);
+            System.out.println("<br>");
             sem = str4.substring(str4.length() - 1);
 
             if (branch.equals("CS")) {
@@ -129,6 +158,9 @@
                 branch = "Mechanical Engineering";
 
             }
+			out.println("Branch = "+branch+"<br>");
+			out.println("Section = "+section+"<br>");
+                        out.println("Course = "+course);
 
              // out.println(context.getInitParameter("Input_Path"));
             out.println("Hello");
@@ -137,7 +169,7 @@
             item.write(f);
            out.println("5");
             path = context.getInitParameter("Input_Path") + item.getName();//
-            query = "Load data local infile ? into table all_students  fields terminated by ',' enclosed by '\n' lines terminated by '\r\n' ignore 1 lines (roll_no,enrollment_no,name) set sem='"+sem+"',year='"+year+"',branch='"+branch+"',section='"+section+"' ";
+            query = "Load data local infile ? into table all_students  fields terminated by ',' enclosed by '\n' lines terminated by '\r\n' ignore 1 lines (roll_no,enrollment_no,name) set sem='"+sem+"',year='"+year+"',branch='"+branch+"',section='"+section+"',course='"+course+"',coursetype='"+coursetype+"' ";
             pd = con.prepareStatement(query);
             pd.setString(1, path);
 //    pd.setInt(2,sem);

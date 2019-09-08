@@ -18,6 +18,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="image/logo.png">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="css/sol.css">
         <style>
 table {
     font-family: arial, sans-serif;
@@ -38,7 +42,7 @@ td, th {
         <title>Payment Status</title>
     </head>
     <header>
-<a href="index.jsp"><img id="logo" src="image/logo.png" alt="Institute of Engineering &amp; Technology"></a>
+<a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
 <h2>Institute Of Engineering &amp; Technology</h2>
 <div class="menu">
   <a href="student_select.jsp">Student_Admit_Card</a>
@@ -48,7 +52,7 @@ td, th {
 </div>
 </header>
   <body style="margin-bottom: 100px;">
-
+ <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
 
 <%! 
     String status;
@@ -69,15 +73,15 @@ td, th {
                         con=DriverManager.getConnection(context.getInitParameter("Url"),context.getInitParameter("UserName"),context.getInitParameter("Password"));
                              
                           
-                       PreparedStatement ps1 =con.prepareStatement("delete from all_students  where roll_no='"+roll_no+"'  " );
-                       PreparedStatement ps11 =con.prepareStatement("delete from schema_table where  rollno='"+roll_no+"' " );
+                       PreparedStatement ps1 =con.prepareStatement("delete from all_students  where roll_no=? " );
+                      
                    
                       
-                       //ps1.setString(1,roll_no);
+                       ps1.setString(1,roll_no);
                          //ps1.setString(2,roll_no);
-                       int j=0,i=0;
+                       int j=0;
                        j=ps1.executeUpdate();
-                       i=ps11.executeUpdate();
+                      
                          
                               if( j > 0)
                                  {

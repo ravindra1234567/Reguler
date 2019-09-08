@@ -52,11 +52,11 @@ public class DeleteSubject extends HttpServlet {
         HttpSession session=request.getSession();
             //String class_id=(String)session.getAttribute("class_id");
             
-            String sem=(String)session.getAttribute("sem");
+            String sem=request.getParameter("sem");
             String sc=request.getParameter("subcode");
             String st=request.getParameter("subtype");
             String ctype = request.getParameter("ctype");
-           String course=(String)request.getParameter("course");
+           String course=request.getParameter("course");
            String branch = request.getParameter("branch");
         out.println(sc);
         out.println(st);

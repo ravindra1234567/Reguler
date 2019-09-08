@@ -68,10 +68,10 @@
                 */
                // int sem = Integer.parseInt((String) session.getAttribute("sem"));
                  String  branch = request.getParameter("branch");
-          int sem = Integer.parseInt(request.getParameter("sem"));
+                 int sem = Integer.parseInt(request.getParameter("sem"));
 //                  out.println(year);
-          String course = request.getParameter("course");
-           String ctype = request.getParameter("ctype");
+                String course = request.getParameter("course");
+                String ctype = request.getParameter("ctype");
                 Class.forName(pageContext.getServletContext().getInitParameter("Driver"));
                 Connection con = DriverManager.getConnection(pageContext.getServletContext().getInitParameter("Url"), pageContext.getServletContext().getInitParameter("UserName"), pageContext.getServletContext().getInitParameter("Password"));
 
@@ -89,6 +89,7 @@
                 session.setAttribute("subcode_list", subjectList);
             %>
             <hr>
+            <a href="GK.JSP"><button class="btn btn-primary" style="margin-left: 10px;"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
             <div class="row">
                 <div class="col-12 text-capitalize h4 text-info" >
                     <h1 align="center"> Subject Allocation</h1>

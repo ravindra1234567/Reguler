@@ -14,6 +14,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="input/logo.png">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        
+         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="css/sol.css">
+
         <style>
 table {
     font-family: arial, sans-serif;
@@ -98,7 +104,8 @@ td, th {
         %>
         
      
-        <button onclick=" window.history.back();">GoBack</button>
+        
+        <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
            <table border radius="1" style="border-collapse:collapse;margin-top: 20px;" width="800px" >
                <tr>
                    

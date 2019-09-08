@@ -62,7 +62,7 @@
                 background-color: rgb(92, 184, 92);
                 color: white;
                 cursor: pointer;
-                padding: 15px;
+                padding: 20px;
                 width: 400px;
                 border: solid;
                 text-align: left;
@@ -255,7 +255,7 @@
             <button class="accordion" style="position:absolute;" id="bt1">Student List ( For Deletion )</button>
             <div class="panel" style="position: absolute;margin-top: 5%;">
 
-
+                    
                 <form action="payment_status.jsp">
                     <table>
                         <tr><td style="text-align: center;"> <h2 style="color:#800000">Student List</h2></td></tr>
@@ -301,7 +301,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="center">  <input type="hidden" value="0" name="i">
-                                <input type="submit" value="SUBMIT" class="button" required></td>
+                                <input type="submit" value="SUBMIT" class="button" required /></td>
                         </tr>
                     </table><br>
 
@@ -310,7 +310,7 @@
 
             </div>
 
-            <button class="accordion" style="top:210px;position: absolute;" id="bt2">Print RASA Form</button>
+            <button class="accordion" style="top:200px;position: absolute;" id="bt2">Print RASA Form</button>
             <div class="panel" style="position: absolute;">
 
 

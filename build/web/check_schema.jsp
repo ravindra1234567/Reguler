@@ -106,7 +106,7 @@ td, th {
      
         
         <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
-           <table border radius="1" style="border-collapse:collapse;margin-top: 20px;" width="800px" >
+           <table border radius="1" style="border-collapse:collapse;margin-top: 10px;" width="800px" >
                <tr>
                    
                     <th><center>Sno.</center></th>

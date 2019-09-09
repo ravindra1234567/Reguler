@@ -67,6 +67,10 @@
         <servlet-name>viee_image</servlet-name>
         <servlet-class>viee_image</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateCredits</servlet-name>
+        <servlet-class>UpdateCredits</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DeleteSubject</servlet-name>
         <url-pattern>/DeleteSubject</url-pattern>
@@ -118,6 +122,10 @@
     <servlet-mapping>
         <servlet-name>viee_image</servlet-name>
         <url-pattern>/viee_image</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCredits</servlet-name>
+        <url-pattern>/UpdateCredits</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

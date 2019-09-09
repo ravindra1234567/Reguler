@@ -769,7 +769,7 @@
                     
               </div>-->
 
-            <button class="accordion" style="top:610px;position: absolute;"  id="bt7"><a  href="clerk_ex1.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Clerk Verification</a></button>
+            <button class="accordion" style="top:610px;position: absolute;"  id="bt7"><a  href="credithome.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Check Subjects Credits</a></button>
         </div>
 
         <script>

@@ -48,7 +48,7 @@ td, th {
         String uname,uname1;
         String pass,pass1;
         String query,query3;
-        String sem;
+        int sem;
         String branch;
         String payment_status,status;
         String eno,roll_no;
@@ -94,18 +94,36 @@ td, th {
                
       //  payment_status=request.getParameter("payment_status");
       
-        sem=request.getParameter("sem");
+        sem=Integer.parseInt(request.getParameter("sem"));
        // status=request.getParameter("status");
      
         branch=request.getParameter("branch");
         course=request.getParameter("course");
-        
-        query2="select  * from all_students where branch=? and sem=?";
+        	String str = course;
+             course = str.substring(0,1);
+		String coursetype = str.substring(1,2);
+		
+		
+		if(str.equals("MS"))
+		{
+			course = "MSC";
+			coursetype = "F";
+		}
+		else{
+			if(course.equals("B"))
+			course = "BE";
+		else
+			course = "ME";
+		}
+       // out.println("branch = "+branch);
+        //out.println("course ="+course);
+        query2="SELECT * FROM `all_students` WHERE `coursetype1`=? and `course1`=? and `sem1`= ? and `branch1`=? ";
         
         pd=con.prepareStatement(query2);
-        pd.setString(1,branch);
- 
-        pd.setString(2,sem);
+        pd.setString(1,coursetype);
+        pd.setString(2,course);
+        pd.setInt(3,sem);
+        pd.setString(4, branch);
         rs=pd.executeQuery();
            
         %>

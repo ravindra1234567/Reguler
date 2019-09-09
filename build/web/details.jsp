@@ -264,10 +264,13 @@
                         <tr>
                             <th width="50%">Select Course</th>
                             <td><select name="course" required="">
-                                    <option value="" selected disabled>Course</option>
-                                    <option value="BE">BE</option>
-                                    <option value="ME">ME</option>
-                                    <option value="MSC">MSC</option>
+                                    <option value="" selected disabled>Select Course</option>
+                                <option value="BF">BE</option>
+                                <option value="BP(PT)">BE(PT)</option>
+                                <option value="MF">ME</option>
+                                <option value="MP(PT)">ME(PT)</option>
+                                <option value="MS">MSC</option>
+                                <option value="MSC(PT)">MSC(PT)</option>
                                 </select>
                             </td>
                         </tr>

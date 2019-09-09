@@ -21,7 +21,7 @@
 
                 var status = document.getElementById("status").value;
                 if (status === "Regular"){
-                    document.getElementById("f1").action = "ex_student.jsp";
+                    document.getElementById("f1").action = "student_registration.jsp";
 			
         }else{
                     
@@ -94,7 +94,7 @@
                             <b>Please Enter Enroll Number</b>
                         </td>
                         <td>
-                            <input class="input"  id="eno" type="text" name="eno" maxlength="7" minlength="7" required="">
+                            <input class="input"  id="eno" type="text" name="enrollmentno" maxlength="7" minlength="7"  required  />
                         </td>
                     </tr>
 
@@ -154,11 +154,11 @@
                         <td>
                             <select class="input" id="course" name="course" required="">
                                 <option value="">--Select Course--</option>
-                                <option value="BE">BE</option>
-                                <option value="BE(PT)">BE(PT)</option>
-                                <option value="ME">ME</option>
-                                <option value="ME(PT)">ME(PT)</option>
-                                <option value="MSC">MSC</option>
+                                <option value="BF">BE</option>
+                                <option value="BP(PT)">BE(PT)</option>
+                                <option value="MF">ME</option>
+                                <option value="MP(PT)">ME(PT)</option>
+                                <option value="MS">MSC</option>
                                 <option value="MSC(PT)">MSC(PT)</option>
                             </select>
                         </td>

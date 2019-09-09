@@ -8,13 +8,13 @@
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page import="java.io.*,java.sql.*,java.util.zip.*" %>
 <%!
-    String rollno=null;
+    String enrollmentno=null;
     String filename =null;
      String saveFile = "";
      int pos;
 %>
 <%
-    rollno = request.getParameter("rollno");
+    enrollmentno = request.getParameter("enrollmentno");
 
     
         MultipartRequest mr=new MultipartRequest(request,"F:\\Reguler\\web\\image\\");
@@ -40,12 +40,12 @@
 
             con = DriverManager.getConnection(context.getInitParameter("Url"), context.getInitParameter("UserName"), context.getInitParameter("Password"));
 
-            psmnt = con.prepareStatement("update  all_students,schema_table set photourl = '"+saveFile+"', application_id='"+application_id+"' ,session1='"+session1+"',all_students.status=1,schema_table.status1=1 where all_students.roll_no= '"+rollno+"' and schema_table.rollno = '"+rollno+"' ");
+            psmnt = con.prepareStatement("update  all_students,schema_table set photourl = '"+saveFile+"', application_id='"+application_id+"' ,session1='"+session1+"',all_students.status=1 where all_students.enrollment_no= '"+enrollmentno+"' ");
          
             int s = psmnt.executeUpdate();
             if (s > 0) {
 //                out.println("Uploaded successfully !");
-                response.sendRedirect("transaction.jsp?rollno="+rollno);
+                response.sendRedirect("transaction.jsp?enrollmentno="+enrollmentno);
             } else {
                 out.println("Error!");
             }

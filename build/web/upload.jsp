@@ -44,7 +44,7 @@
             String tid;
         %>
         <%
-            rollno=request.getParameter("rollno");
+            eno=request.getParameter("enrollmentno");
 //            tid = request.getParameter("tid");
 //            out.println("ravindra"+tid);
 ////            out.println(roll_no);
@@ -60,7 +60,7 @@
 
                         <table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC" >
                             <tr>
-                            <form name="f1" method="post" action="submit.jsp?rollno=<%= rollno%>" enctype="multipart/form-data" >
+                            <form name="f1" method="post" action="submit.jsp?enrollmentno=<%= eno %>" enctype="multipart/form-data" >
                                 <td>
                                     <table width="400" height="200" border="4" cellpadding="5" cellspacing="5" bgcolor="#FFFFFF">
                                         <tr>

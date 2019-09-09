@@ -110,7 +110,7 @@ td, th {
         branch=request.getParameter("branch");
         course=request.getParameter("course");
         
-        query2="select  roll_no,application_id,name,photourl,branch,sem from all_students where branch=? and all_students.sem=? and status = 0  ";
+        query2="select  roll_no,application_id,name,photourl,branch1,sem1 from all_students where branch1=? and all_students.sem1=? and status = 0  ";
         
         pd=con.prepareStatement(query2);
         pd.setString(1,branch);

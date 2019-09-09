@@ -11,10 +11,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%!
-    String roll_no;
+    String enrollmentno;
+    String roll_no=null;
     String branch;
     String enrollment_no;
-    String sem;
+    int sem;
     String name;
     String father_name;
     String class_name;
@@ -33,12 +34,14 @@
     String subject_type1;
     String st2;
     String st;
+    String course = null;
+    String coursetype = null;
     int i;
 %>
 
 
 <%
-    roll_no = request.getParameter("rollno");
+    enrollmentno = request.getParameter("enrollmentno");
     //HttpSession ss = request.getSession();
 //    enrollment_no = (String) ss.getAttribute("e");
 //    status = (String) ss.getAttribute("s");
@@ -58,15 +61,17 @@
     Class.forName(context.getInitParameter("Driver"));
     Connection con = DriverManager.getConnection(context.getInitParameter("Url"), context.getInitParameter("UserName"), context.getInitParameter("Password"));
 
-    PreparedStatement ps2 = con.prepareStatement("select roll_no,enrollment_no,name,year,branch ,all_students.sem from all_students,schema_table,subject_table where subject_table.subject_code = schema_table.subcode and all_students.roll_no = schema_table.rollno and all_students.roll_no = '" + roll_no + "' ");
+    PreparedStatement ps2 = con.prepareStatement("select roll_no,enrollment_no,name,year,branch1 ,all_students.sem1,course1,coursetype1 from all_students,schema_table,subject_table where subject_table.subject_code = schema_table.subcode and all_students.enrollment_no = '" + enrollmentno + "' ");
     rs2 = ps2.executeQuery();
     if (rs2.next()) {
-        branch = rs2.getString("branch");
-        roll_no = rs2.getString("roll_no");
+        branch = rs2.getString("branch1");
+        enrollmentno = rs2.getString("roll_no");
         year = rs2.getString("year");
         enrollment_no = rs2.getString("enrollment_no");
         name = rs2.getString("name");
-        sem = rs2.getString("sem");
+        sem = Integer.parseInt(rs2.getString("sem1") );
+        course  = rs2.getString("course1");
+        coursetype = rs2.getString("coursetype1");
 
     }
 %>
@@ -176,7 +181,7 @@
                     Roll No
                 </td>
                 <td align="left">
-                    <span><%= roll_no%></span>
+                    <span><%= roll_no %></span>
                 </td>
                 <td align="left">
                     Class
@@ -287,13 +292,20 @@
             <tr>
             <%
                 //ServletContext context = getServletContext();
-             PreparedStatement ps22 = con.prepareStatement("select subject_code,subject_name,subtype,all_students.sem from all_students,schema_table,subject_table where subject_table.subject_code = schema_table.subcode and all_students.roll_no = schema_table.rollno and all_students.roll_no = '" + roll_no + "' ");
-    ResultSet rs22 = ps22.executeQuery();
+                // PreparedStatement ps22 = con.prepareStatement("select subject_code,subject_name,subtype,all_students.sem1 from all_students,schema_table,subject_table where subject_table.subject_code = schema_table.subcode and all_students.roll_no = schema_table.rollno and all_students.roll_no = '" + roll_no + "' ");
+                
+            PreparedStatement ps22 = con.prepareStatement("SELECT subcode,subtype,subject_name from schema_table,subject_table where schema_table.sem =? and schema_table.branch=? and schema_table.course = ? and  schema_table.coursetype = ? and subject_table.subject_code=schema_table.subcode");
+                
+                    ps22.setInt(1,sem);
+                    ps22.setString(2,branch);
+                    ps22.setString(3,course);
+                    ps22.setString(4, coursetype);
+            ResultSet rs22 = ps22.executeQuery();
                 if (rs22.next()) {
 
                     do {
                         subject_name = rs22.getString("subject_name");
-                        subject_code = rs22.getString("subject_code");
+                        subject_code = rs22.getString("subcode");
                         subject_type = rs22.getString("subtype");
                          if (subject_type.equals("1")) {
                                    
@@ -449,7 +461,7 @@
                         Class.forName(context.getInitParameter("Driver"));
                         Connection con1 = DriverManager.getConnection(context.getInitParameter("Url"), context.getInitParameter("UserName"), context.getInitParameter("Password"));
 
-                        PreparedStatement ps1 = con.prepareStatement("select subject_code,subject_name,subtype,all_students.sem from all_students,schema_table,subject_table where subject_table.subject_code = schema_table.subcode and all_students.roll_no = schema_table.rollno and all_students.roll_no = '" + roll_no + "' ");
+                        PreparedStatement ps1 = con.prepareStatement("select subject_code,subject_name,subtype,all_students.sem1 from all_students,schema_table,subject_table where subject_table.subject_code = schema_table.subcode and all_students.enrollment_no = '" + enrollmentno + "' ");
                         ResultSet rs = ps1.executeQuery();
                         if (rs.next()) {
 

@@ -169,7 +169,7 @@
             item.write(f);
            out.println("5");
             path = context.getInitParameter("Input_Path") + item.getName();//
-            query = "Load data local infile ? into table all_students  fields terminated by ',' enclosed by '\n' lines terminated by '\r\n' ignore 1 lines (roll_no,enrollment_no,name) set sem='"+sem+"',year='"+year+"',branch='"+branch+"',section='"+section+"',course='"+course+"',coursetype='"+coursetype+"' ";
+            query = "Load data local infile ? into table all_students  fields terminated by ',' enclosed by '\n' lines terminated by '\r\n' ignore 1 lines (roll_no,enrollment_no,name) set sem1='"+sem+"',year='"+year+"',branch1='"+branch+"',section='"+section+"',course1='"+course+"',coursetype1='"+coursetype+"' ";
             pd = con.prepareStatement(query);
             pd.setString(1, path);
 //    pd.setInt(2,sem);

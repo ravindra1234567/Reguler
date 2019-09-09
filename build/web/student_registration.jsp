@@ -75,7 +75,7 @@
         String en;
         String name;
         String status1;
-        String sem1;
+        int sem1;
         String branch;
         String scheme_id;
         String subject_name;
@@ -98,11 +98,37 @@
     %>
     <%
 
-        eno = (request.getParameter("eno")).toUpperCase();
+        eno = (request.getParameter("enrollmentno")).toUpperCase();
         status1 = request.getParameter("status");
-        sem1 = request.getParameter("sem");
-//        year = request.getParameter("branch");
-
+        sem1 = Integer.parseInt(request.getParameter("sem"));
+        branch = request.getParameter("branch");
+        course = request.getParameter("course");
+//        out.println("eno = "+eno);
+//        out.println("status1 = "+status1);
+//        out.println("sem1 = "+sem1);
+//        out.println("branch = "+ branch);
+//        out.println("course = "+course);
+        
+        
+        	String str = course;
+		String course = str.substring(0,1);
+		String coursetype = str.substring(1,2);
+		
+		
+		if(str.equals("MS"))
+		{
+			course = "MSC";
+			coursetype = "F";
+		}
+		else{
+			if(course.equals("B"))
+			course = "BE";
+		else
+			course = "ME";
+		}
+	//	System.out.println("course = "+ course);
+		//System.out.println("coursetype = "+ coursetype);
+        
         HttpSession s = request.getSession();
         s.setAttribute("e", eno);
         s.setAttribute("s", status1);
@@ -113,14 +139,19 @@
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(context.getInitParameter("Url"), context.getInitParameter("UserName"), context.getInitParameter("Password"));
 
-            PreparedStatement ps = con.prepareStatement("SELECT roll_no,enrollment_no,name,year,branch,section,subcode,subtype,subject_name from all_students,schema_table,subject_table where subject_table.subject_code=schema_table.subcode and schema_table.rollno=all_students.roll_no and all_students.enrollment_no=? and all_students.sem=? ");
+            //PreparedStatement ps = con.prepareStatement("SELECT roll_no,enrollment_no,name,year,branch,section,subcode,subtype,subject_name from all_students,schema_table,subject_table where subject_table.subject_code=schema_table.subcode and  all_students.enrollment_no=? and all_students.sem=? ");
+            PreparedStatement ps = con.prepareStatement("SELECT roll_no,enrollment_no,name,year,branch1,section,subcode,subtype,subject_name,sem1 from all_students,schema_table,subject_table where all_students.enrollment_no = ? and all_students.sem1=?  and schema_table.sem =? and schema_table.branch=? and schema_table.course = ? and schema_table.coursetype = ? and subject_table.subject_code=schema_table.subcode ");
+      
             ps.setString(1, eno);
-            ps.setString(2, sem1);
-
+            ps.setInt(2, sem1);
+            ps.setInt(3,sem1);
+            ps.setString(4,branch );
+            ps.setString(5, course);
+            ps.setString(6,coursetype);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
 
-                branch = rs.getString("branch");
+                branch = rs.getString("branch1");
                 rollno = rs.getString("roll_no");
                 name = rs.getString(3);
                 year = rs.getString("year");
@@ -166,7 +197,7 @@
     </style>
 </head>
 <body>
-
+<a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
 <center>
     <div id="d1">
         <hr>
@@ -178,7 +209,7 @@
         <div style="background-color: #B0C4DE;text-align: left;">
             Student Detail
         </div>
-        <form action="upload.jsp?rollno=<%= rollno %>" method="get" >
+        <form action="upload.jsp?enrollmentno=<%= eno %>" method="get" >
 
             <table cellpadding="4" cellspacing="1" border="1" style="border-collapse:collapse;margin-bottom: 7px;border-color: #cdcdcd" align="Center">
                 <tr>
@@ -365,10 +396,13 @@
                    
                     con = DriverManager.getConnection(context.getInitParameter("Url"), context.getInitParameter("UserName"), context.getInitParameter("Password"));
                   
-                    PreparedStatement ps1 = con.prepareStatement("SELECT subcode,subtype,subject_name from all_students,schema_table,subject_table where subject_table.subject_code=schema_table.subcode and schema_table.rollno=all_students.roll_no and all_students.enrollment_no=? and all_students.sem=? ");
-                    ;
-                    ps1.setString(1, eno);
-                    ps1.setString(2, sem1);
+                    //PreparedStatement ps1 = con.prepareStatement("SELECT subcode,subtype,subject_name from all_students,schema_table,subject_table where subject_table.subject_code=schema_table.subcode and schema_table.rollno=all_students.roll_no and all_students.enrollment_no=? and all_students.sem=? ");
+                    PreparedStatement ps1 = con.prepareStatement("SELECT subcode,subtype,subject_name from schema_table,subject_table where schema_table.sem =? and schema_table.branch=? and schema_table.course = ? and  schema_table.coursetype = ? and subject_table.subject_code=schema_table.subcode");
+                
+                    ps1.setInt(1, sem1);
+                    ps1.setString(2,branch);
+                    ps1.setString(3,course);
+                    ps1.setString(4, coursetype);
 
                     ResultSet rs1 = ps1.executeQuery();
                     
@@ -467,7 +501,7 @@
 
     }
 </script> 
-<input type="hidden" name="rollno" value=<%= rollno %> />
+<input type="hidden" name="enrollmentno" value=<%= eno %> />
 </form> 
 
 </body>

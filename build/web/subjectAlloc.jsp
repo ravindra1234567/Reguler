@@ -21,8 +21,8 @@
         <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="css/sol.css">
-
-
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="container-fluid header">
@@ -89,7 +89,7 @@
                 session.setAttribute("subcode_list", subjectList);
             %>
             <hr>
-            <a href="GK.JSP"><button class="btn btn-primary" style="margin-left: 10px;"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
+            <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
             <div class="row">
                 <div class="col-12 text-capitalize h4 text-info" >
                     <h1 align="center"> Subject Allocation</h1>

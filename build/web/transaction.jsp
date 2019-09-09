@@ -65,7 +65,8 @@
     rs2 = ps2.executeQuery();
     if (rs2.next()) {
         branch = rs2.getString("branch1");
-        enrollmentno = rs2.getString("roll_no");
+        enrollmentno = rs2.getString("enrollment_no");
+        roll_no = rs2.getString("roll_no");
         year = rs2.getString("year");
         enrollment_no = rs2.getString("enrollment_no");
         name = rs2.getString("name");

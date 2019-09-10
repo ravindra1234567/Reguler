@@ -42,6 +42,27 @@
 
 <%
     enrollmentno = request.getParameter("enrollmentno");
+    branch = request.getParameter("branch");
+    course = request.getParameter("course");
+    sem = Integer.parseInt(request.getParameter("sem"));
+    status = request.getParameter("status");
+    
+                String str = course;
+                course = str.substring(0,1);
+		coursetype = str.substring(1,2);
+		
+		
+		if(str.equals("MS"))
+		{
+			course = "MSC";
+			coursetype = "F";
+		}
+		else{
+			if(course.equals("B"))
+			course = "BE";
+		else
+			course = "ME";
+		}
     //HttpSession ss = request.getSession();
 //    enrollment_no = (String) ss.getAttribute("e");
 //    status = (String) ss.getAttribute("s");
@@ -61,20 +82,10 @@
     Class.forName(context.getInitParameter("Driver"));
     Connection con = DriverManager.getConnection(context.getInitParameter("Url"), context.getInitParameter("UserName"), context.getInitParameter("Password"));
 
-    PreparedStatement ps2 = con.prepareStatement("select roll_no,enrollment_no,name,year,branch1 ,all_students.sem1,course1,coursetype1 from all_students,schema_table,subject_table where subject_table.subject_code = schema_table.subcode and all_students.enrollment_no = '" + enrollmentno + "' ");
-    rs2 = ps2.executeQuery();
-    if (rs2.next()) {
-        branch = rs2.getString("branch1");
-        enrollmentno = rs2.getString("enrollment_no");
-        roll_no = rs2.getString("roll_no");
-        year = rs2.getString("year");
-        enrollment_no = rs2.getString("enrollment_no");
-        name = rs2.getString("name");
-        sem = Integer.parseInt(rs2.getString("sem1") );
-        course  = rs2.getString("course1");
-        coursetype = rs2.getString("coursetype1");
+    
+   
 
-    }
+    
 %>
 
 
@@ -95,7 +106,12 @@
     </style>
     <link rel="icon" href="input/logo.png">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-
+<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+                <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="css/sol.css">
 </head>
 <header style="width: 1550px;">
     <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
@@ -105,269 +121,31 @@
     </div>
 </header>
 <body>
+    <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
     <div id="menu_bar" style="background-color:yellowgreen;margin-top: 10px;"></div>
 <center>
-    <div id="d1">
-        <hr>
-        <h3 align="center">
-            UTD Pay-Unpaid Examination Form/Print Reciept ( SEM <%= sem%> )
-        </h3>
-        <hr>
-
-        <div style="background-color: #B0C4DE;text-align: left;">
-            Opted Paper Description(Not In Sequence According To Time Table Of University)
-        </div>
-        <table cellpadding="4" cellspacing="1" border="1" style="border-collapse:collapse;margin-bottom: 7px;border-color: #cdcdcd" align="Center">
-            <tr>
-
-                <td align="left">
-                    Name of College(Code)
-                </td>
-                <td align="left" colspan="4">
-                    <span>
-                        INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (IET), INDORE(808)</span>
-                </td>
-                <td rowspan="2" align="center">
-                    <img id="ihoto" style="height:120px;width:100px;border-width:0px;"/>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td align="left">
-                    Registration for Examination
-                </td>
-                <td align="left">
-                    <span>Dec-2019</span>
-                </td>
-                <td align="left">
-                    Examination Centre(Code)
-                </td>
-                <td align="left" colspan="2">
-                    <span>INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (IET), INDORE(808)</span>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td align="left">
-                    Name of Course
-                </td>
-                <td align="left">
-                    <span><%%></span>
-                </td>
-                <td align="left">
-                    Programme/Branch(Code)
-                </td>
-                <td align="left">
-                    <div><%= branch%></div>
-                </td>
-                <td align="left">
-                    Semester
-                </td>
-                <td align="left">
-                    <span><%= sem%></span>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td align="left">
-                    Enrollment No.
-                </td>
-                <td align="left">
-                    <span><%= enrollment_no%></span>
-                </td>
-                <td align="left">
-                    Roll No
-                </td>
-                <td align="left">
-                    <span><%= roll_no %></span>
-                </td>
-                <td align="left">
-                    Class
-                </td>
-                <td align="left">
-                    <span><%= year%></span>
-                </td>
-
-            </tr>
-            <tr>
-                <td align="left">
-                    Name of Examinee
-                </td>
-                <td align="left">
-                    <div><%= name%></div>
-                </td>
-
-
-                <td align="left">
-                    Status
-                </td>
-                <td align="left">
-                    <span><%= "Reguler"%></span>
-                </td>
-
-                <td align="left">
-                    Gender
-                </td>
-                <td align="left">
-                    <span></span>
-                </td>
-            </tr>
-            <tr>
-
-                <td align="left">
-                    Father's Name 
-                </td>
-                <td align="left" colspan="2">
-                    <div></div>
-                </td>
-                <td align="left">
-                    Mother's Name
-                </td>
-                <td align="left" colspan="2">
-                    <span></span>
-                </td>
-
-            </tr>
-
-            <tr>
-
-                <td align="left">
-                    Category
-                </td>
-                <td align="left" colspan="2">
-                    <div></div>
-                </td>
-                <td align="left" >
-                    Mobile NO
-                </td>
-                <td align="left" colspan="2">
-                    <span></span>
-                </td>
-
-
-            </tr>
-
-            <tr><td align="left">
-                    Present Address
-                </td>
-                <td align="left" colspan="5">
-                    <div></div>
-                </td></tr>
-            <tr>
-
-                <td align="left">
-                    City
-                </td>
-                <td align="left" colspan="2">
-                    <span></span>
-                </td>
-                <td align="left">
-                    District
-                </td>
-                <td align="left" colspan="2">
-                    <span></span>
-                </td>
-
-            </tr>     
-
-
-        </table>
-        <div class="head1" style="z-index: 730;background-color: #B0C4DE;text-align: left;">
-            Subject Description
-        </div>
-        <table cellspacing="0" rules="all" border="1" id="grdSubject" style="width:100%;border-collapse:collapse;">
-            <tr>
-               	<th align="left">
-                    Paper Code
-                </th>
-                <th align="left">
-                    Paper Description
-                </th>
-                <th align="left">
-                    Paper Type
-                </th>
-            </tr>
-            <tr>
-            <%
-                //ServletContext context = getServletContext();
-                // PreparedStatement ps22 = con.prepareStatement("select subject_code,subject_name,subtype,all_students.sem1 from all_students,schema_table,subject_table where subject_table.subject_code = schema_table.subcode and all_students.roll_no = schema_table.rollno and all_students.roll_no = '" + roll_no + "' ");
-                
-            PreparedStatement ps22 = con.prepareStatement("SELECT subcode,subtype,subject_name from schema_table,subject_table where schema_table.sem =? and schema_table.branch=? and schema_table.course = ? and  schema_table.coursetype = ? and subject_table.subject_code=schema_table.subcode");
-                
-                    ps22.setInt(1,sem);
-                    ps22.setString(2,branch);
-                    ps22.setString(3,course);
-                    ps22.setString(4, coursetype);
-            ResultSet rs22 = ps22.executeQuery();
-                if (rs22.next()) {
-
-                    do {
-                        subject_name = rs22.getString("subject_name");
-                        subject_code = rs22.getString("subcode");
-                        subject_type = rs22.getString("subtype");
-                         if (subject_type.equals("1")) {
-                                   
-                    %>
-                    <td align="center"><%=subject_code%></td>
-                    <td style="padding: 4px;"><%=subject_name%></td>
-                    <td align="center">Practical</td>
-                    <%          } 
-                                else if (subject_type.equals("0")) {
-                      
-                    %>
-                    <td align="center"><%=subject_code%></td>
-                    <td style="padding: 4px;"><%=subject_name%></td>
-                    <td align="center">Theory</td>
-
-                    <%
-                    } else {
-                    %>
-
-                    <td align="center"><%=subject_code%></td>
-                    <td style="padding: 4px;"><%=subject_name%></td>
-                    <td align="center">Theory</td>
-                    
-                </tr>
-                <tr>
-                    <td align="center"><%=subject_code%></td>
-                    <td style="padding: 4px;"><%=subject_name%></td>
-                    <td align="center">Practical</td>
-
-
-
-
-
-                    <%  }
-
-          //st2 = st;
-                    %>
-
-                    </tr>
-                    
-                <%                        } while (rs22.next());
-
-                }
-
-            %>       
-            
-        </table>
-    </div>
+    
 
 
 <%
+     PreparedStatement ps2 = con.prepareStatement("select roll_no,enrollment_no,name,year,branch1 ,sem1,course1,coursetype1 from all_students where branch1=? and sem1=? and course1=? and coursetype1=?  ");
+    ps2.setString(1,branch);
+    ps2.setInt(2, sem);
+    ps2.setString(3, course);
+    ps2.setString(4,coursetype);
+    rs2 = ps2.executeQuery();
+    while (rs2.next()) {
+        branch = rs2.getString("branch1");
+        enrollmentno = rs2.getString("enrollment_no");
+        roll_no = rs2.getString("roll_no");
+        year = rs2.getString("year");
+        enrollment_no = rs2.getString("enrollment_no");
+        name = rs2.getString("name");
+        sem = Integer.parseInt(rs2.getString("sem1") );
+        course  = rs2.getString("course1");
+        coursetype = rs2.getString("coursetype1");
 %>
 
-
-
-<div style="width: 1400px;">
-    <center>
-        <input id="pay" style="margin-top: 10px" type="button" onclick="window.print()" value="   Print   "/>
-    </center>
-</div>
-</p>
 
 
 
@@ -462,7 +240,11 @@
                         Class.forName(context.getInitParameter("Driver"));
                         Connection con1 = DriverManager.getConnection(context.getInitParameter("Url"), context.getInitParameter("UserName"), context.getInitParameter("Password"));
 
-                        PreparedStatement ps1 = con.prepareStatement("select subject_code,subject_name,subtype,all_students.sem1 from all_students,schema_table,subject_table where subject_table.subject_code = schema_table.subcode and all_students.enrollment_no = '" + enrollmentno + "' ");
+                        PreparedStatement ps1 = con.prepareStatement("select subject_code,subject_name,subtype from schema_table,subject_table where branch='"+branch+"'and sem='"+sem+"'and course='"+course+"' and coursetype='"+coursetype+"' and subject_code = subcode ");
+                      /* ps2.setString(1,branch);
+                       ps2.setInt(2, sem);
+                       ps2.setString(3, course);
+                       ps2.setString(4,coursetype);*/
                         ResultSet rs = ps1.executeQuery();
                         if (rs.next()) {
 
@@ -521,6 +303,7 @@
                 <%                        } while (rs.next());
 
                     }
+    
 
                 %>       
 
@@ -530,12 +313,12 @@
         </div>   </center>
 </center>
 
-
+<% } %>
 
 
 <div style="width: 1400px;">
     <center>
-        <input id="pay" style="margin-top: 10px" type="button" onclick="window.print()" value="   Print   "/>
+        <input id="pay" style="margin-top: 0px;"  type="button" onclick="window.print()" value="Print"/>
     </center>
 </div>
 </p>
@@ -547,17 +330,18 @@
 
 </body>
 <footer style="width: 1550px;">
+    <div class="d-print-none">
     <p align="center" id="p1">
         Exam Registration Portal
     </p>
     <hr align="center" width="60%">
     <p align="center" id="p2">
-         Developed & Designed by :- Hemant Sir,Ravindra Kumar Kushwaha and Sumit kr.
+         Developed & Designed by :- Hemant Sir and Ravindra Kumar Kushwaha 
 
         For any queries contact ravindrakushwahanwg@gmail.com.
         Copyright © 2019 IET DAVV. All right reserved.
     </p>
-
+    </div>
 </footer>
 
 

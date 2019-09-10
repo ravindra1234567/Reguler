@@ -322,7 +322,7 @@
                     <table>
                         <tr><td style="text-align: center;"> <h2 style="color:#800000">Print RASA Form </h2></td></tr>
                     </table>
-                    <form id="f1">
+                    <form id="f1" action="printrasaform.jsp" method="get">
 
                         <table  style="border-style:groove" >
 

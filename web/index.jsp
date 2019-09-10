@@ -104,7 +104,7 @@
                         </td>
                         <td>
                             <select class="input"  id="status" name="status" required="">
-                                <option value="">--Select Status--</option>
+                                <option value="" selected disabled >--Select Status--</option>
                                 <option>Regular</option>
                                 <option>Ex</option>
                             </select>
@@ -117,7 +117,7 @@
                         </td>
                         <td>
                             <select class="input" id="sem" name="sem" required="">
-                                <option value="">--Select Semester--</option>
+                                <option value="" selected disabled >--Select Semester--</option>
                                 <option value="1">1Sem</option>
                                 <option value="2">2Sem</option>
                                 <option value="3">3Sem</option>
@@ -137,7 +137,7 @@
 
                         <td>
                             <select name="branch" required="">
-                                <option value="">Select Branch</option>
+                                <option value="" selected disabled>Select Branch</option>
                                 <option value="Computer Engineering">Computer Engineering</option>
                                 <option value="Electronics & Telecommunication Engineering">Electronics & Telecommunication Engineering</option>
                                 <option value="Information Technology">Information Technology</option>
@@ -153,7 +153,7 @@
                         </td>
                         <td>
                             <select class="input" id="course" name="course" required="">
-                                <option value="">--Select Course--</option>
+                                <option value="" selected disabled >--Select Course--</option>
                                 <option value="BF">BE</option>
                                 <option value="BP(PT)">BE(PT)</option>
                                 <option value="MF">ME</option>

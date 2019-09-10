@@ -21,7 +21,7 @@
     </context-param>
     <context-param>
         <param-name>Password</param-name>
-        <param-value/>
+        <param-value></param-value>
     </context-param>
     <servlet>
         <servlet-name>myupload</servlet-name>

@@ -13,7 +13,12 @@
         <link rel="icon" href="input/logo.png">
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-        
+         <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script type="text/javascript">
 
             function Redirect()
@@ -35,6 +40,12 @@
                     //document.getElementById("f1").action = "student.jsp";
 
             }
+            
+            
+            
+       
+ 
+
         </script>
         <link rel="stylesheet" type="text/css" href="css/index.css" >
         <style>
@@ -66,111 +77,147 @@
                 border-color: grey;
                 font-size: 15px;
             }
-
+            small{
+                font-size:16px;
+            }
+            .container{
+                margin-bottom: 20px;
+                margin-top: 40px;
+                max-width: 600px;
+            }
+            .container form{
+                padding-bottom: 20px;
+            }
         </style>
     </head>
     <header>
         <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
-        <h2>Institute Of Engineering &amp; Technology</h2>
+        <h2>Institute of Engineering &amp; Technology</h2>
         <div class="menu">
             <a href="admin.jsp">Admin</a>
             <a href="index.jsp">Home</a>
         </div>
     </header>
     <body>
+     <div class="container">
+        <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
+			<form method="POST"  class="sign-up" id="f1">
+				<div class="row">
+					<div class="col-lg-12 p-3 h2 font-weight-light bg-success text-light text-center">
+						Examination Registration Portal
+						<!--<button type="button" class="close text-white" onclick="$('div.sign-up').hide();$('div.video-ad').show();">&times;</button>-->
+					</div>
+                                </div>
+					<div class="ml-2 mr-2 row">
+						<div class="col-lg-6 p-1">
+							<label for="student-name"><small>Enter Enrollment Number<sup class="text-danger">*</sup></small></label>
+							<input type="text" id="student-name" class="form-control" placeholder="Enter Enrollment Number" required autofocus name="student-name"  autocomplete="off">
+						</div>
+						<div class="col-lg-6 p-1">
+							<label for="student-mobile"><small>Status<sup class="text-danger">*</sup></small></label>
+							<div class="input-group">
+<!--								<div class="input-group-prepend">
+									<div class="input-group-text">+91</div>
+								</div>-->
+								<select   id="status" name="status" required="" class="form-control">
+                                                                        <option value="" selected disabled >Select Status</option>
+                                                                        <option>Regular</option>
+                                                                        <option>Ex</option>
+                                                                </select>
+							</div>
+							<small class="text-danger font-italic mobile-warning" style="display: none;">Incorrect Mobile Number</small>
+                                                </div>
+					<div class="col-lg-4 p-1">
+						<label for="student-class"><small>Select Course<sup class="text-danger">*</sup></small></label>
+						<select id="student-class" name="course" class="form-control">
+							 <option value="" selected disabled >Select Course</option>
+                                                         <option value="BF">BE</option>
+                                                         <option value="BP">BE(PT)</option>
+                                                        <option value="MF">ME</option>
+                                                        <option value="MP">ME(PT)</option>
+                                                        <option value="MSF">MSC(FT)</option>
+                                                        <option value="MSP">MSC(PT)</option>
+						</select>
+					</div>
+					
+					<div class="col-lg-4 p-1">
+						<label><small>Select Branch<sup class="text-danger">*</sup></small></label>
+                                                <select  id="blank_branch" name="branch" class="branch form-control">
+                                                        <option value="" selected disabled>Select Branch</option>
+                                 
+                                                </select>
+                                                <select id="branch_ME" name="branch" class="branch form-control" style="display:none">
+                                                        <option value="" selected disabled>Select Branch</option>
+                                                         <option value="Applied Mathematics">Applied Mathematics</option>
+                                                         <option value="Applied Mathematics">Applied Mathematics</option>
+                                                </select>
+						<select id="branch_BE" name="branch" class="branch form-control" style="display:none">
+                                                    <option value="" selected disabled>Select Branch</option>
+                                                    <option value="Computer Engineering">Computer Engineering</option>
+                                                    <option value="Electronics & Telecommunication Engineering">Electronics & Telecommunication Engineering</option>
+                                                    <option value="Information Technology">Information Technology</option>
+                                                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                                    <option value="Civil Engineering">Civil Engineering</option>
+                                                    <option value="Electronics & Instrumentation Engineering">Electronics & Instrumentation Engineering</option>
+                                                </select>
+                                                <select id="branch_MS" name="branch" class="branch form-control" style="display:none">
+                                                    <option value="" selected disabled>Select Branch</option>
+                                                    <option value="Computer Engineering">Computer Engineering</option>
+                                                    
+                                                </select>
+					</div>
+                                        <div class="col-lg-4 p-1">
+						<label for="student-medium"><small>Select Semester<sup class="text-danger">*</sup></small></label>
+						<select id="student-medium" name="sem" class="form-control">
+                                                         <option value="" selected disabled>Select Semester</option>
+							 <option value="1">1Sem</option>
+                                                         <option value="2">2Sem</option>
+                                                         <option value="3">3Sem</option>
+                                                         <option value="4">4Sem</option>
+                                                        <option value="5">5Sem</option>
+                                                        <option value="6">6Sem</option>
+                                                        <option value="7">7Sem</option> 
+                                                        <option value="8">8Sem</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-lg-12">
+					<label class="checkbox-inline small">
+						<input class="test-result-date" type="checkbox" required>
+						I accept the terms and conditions.
+					</label>
+				</div>
+				<div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
+                                     
+					<button type="submit" class="btn btn-success btn-block sign-up" type="submit">GO<i class='fas fa-user-plus'></i></button>
+                                       
+                                        </div>
+                            	</form>
 
-    <center>
-        <form id="f1">
-            <div class="div1">
-                <h3 style="text-align:center">Examination Registration Portal</h3><hr width="95%">
-
-                <table id="t1">
-                    <tr><td style="text-align: center;">LOGIN</td></tr>
-                </table>
-
-                <table border="1" id="t2">
-                    <tr>
-                        <td id="td1">
-                            <b>Please Enter Enroll Number</b>
-                        </td>
-                        <td>
-                            <input class="input"  id="eno" type="text" name="enrollmentno" maxlength="7" minlength="7"  required  />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td id="td1">
-                            <b>Select Student Status</b>
-                        </td>
-                        <td>
-                            <select class="input"  id="status" name="status" required="">
-                                <option value="" selected disabled >--Select Status--</option>
-                                <option>Regular</option>
-                                <option>Ex</option>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td  id="td1">
-                            <b>Select Student Semester</b>
-                        </td>
-                        <td>
-                            <select class="input" id="sem" name="sem" required="">
-                                <option value="" selected disabled >--Select Semester--</option>
-                                <option value="1">1Sem</option>
-                                <option value="2">2Sem</option>
-                                <option value="3">3Sem</option>
-                                <option value="4">4Sem</option>
-                                <option value="5">5Sem</option>
-                                <option value="6">6Sem</option>
-                                <option value="7">7Sem</option> 
-                                <option value="8">8Sem</option>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td  id="td1">
-                            <b>Select Branch</b>
-                        </td>
-
-                        <td>
-                            <select name="branch" required="">
-                                <option value="" selected disabled>Select Branch</option>
-                                <option value="Computer Engineering">Computer Engineering</option>
-                                <option value="Electronics & Telecommunication Engineering">Electronics & Telecommunication Engineering</option>
-                                <option value="Information Technology">Information Technology</option>
-                                <option value="Mechanical Engineering">Mechanical Engineering</option>
-                                <option value="Civil Engineering">Civil Engineering</option>
-                                <option value="Electronics & Instrumentation Engineering">Electronics & Instrumentation Engineering</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td  id="td1">
-                            <b>Select Course</b>
-                        </td>
-                        <td>
-                            <select class="input" id="course" name="course" required="">
-                                <option value="" selected disabled >--Select Course--</option>
-                                <option value="BF">BE</option>
-                                <option value="BP(PT)">BE(PT)</option>
-                                <option value="MF">ME</option>
-                                <option value="MP(PT)">ME(PT)</option>
-                                <option value="MS">MSC</option>
-                                <option value="MSC(PT)">MSC(PT)</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-
-                <input class="btn" type="submit" name="btn" value="GO" onclick="Redirect()">
-                <input class="btn" type="button" name="cbtn" value="Cancel">
-
-            </div>
-        </form>
-    </center>
+			</div>
+	</div>
+     </div>
+        <script>
+            
+                 $("select#student-class").change(function () {
+                     var str =  $(this).find("option:selected").val();
+                    if( (str=="MF") || (str=="MP") ){
+                        $(".branch").hide();
+                        $("#branch_ME").show();
+                         
+                    }
+                    if( (str=="BF") || (str=="BP") ){
+                         $(".branch").hide();
+                         $("#branch_BE").show();
+                         
+                    }
+                    if( (str=="MSF") || (str=="MSB") ){
+                         $(".branch").hide();
+                         $("#branch_MS").show();
+                         
+                    }
+		});
+        </script>
 </body>
 <footer>
     <p align="center" id="p1">

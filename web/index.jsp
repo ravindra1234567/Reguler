@@ -23,9 +23,11 @@
 
             function Redirect()
             {
-
+                  
                 var status = document.getElementById("status").value;
+                
                 if (status === "Regular"){
+                    
                     document.getElementById("f1").action = "student_registration.jsp";
 			
         }else{
@@ -101,7 +103,7 @@
     <body>
      <div class="container">
         <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
-			<form method="POST"  class="sign-up" id="f1">
+			<form class="sign-up" id="f1">
 				<div class="row">
 					<div class="col-lg-12 p-3 h2 font-weight-light bg-success text-light text-center">
 						Examination Registration Portal
@@ -111,7 +113,7 @@
 					<div class="ml-2 mr-2 row">
 						<div class="col-lg-6 p-1">
 							<label for="student-name"><small>Enter Enrollment Number<sup class="text-danger">*</sup></small></label>
-							<input type="text" id="student-name" class="form-control" placeholder="Enter Enrollment Number" required autofocus name="student-name"  autocomplete="off">
+							<input type="text" id="student-name" class="form-control" placeholder="Enter Enrollment Number" required autofocus name="enrollmentno"  autocomplete="off">
 						</div>
 						<div class="col-lg-6 p-1">
 							<label for="student-mobile"><small>Status<sup class="text-danger">*</sup></small></label>
@@ -121,8 +123,8 @@
 								</div>-->
 								<select   id="status" name="status" required="" class="form-control">
                                                                         <option value="" selected disabled >Select Status</option>
-                                                                        <option>Regular</option>
-                                                                        <option>Ex</option>
+                                                                        <option value="Regular">Regular</option>
+                                                                        <option value="Ex">Ex</option>
                                                                 </select>
 							</div>
 							<small class="text-danger font-italic mobile-warning" style="display: none;">Incorrect Mobile Number</small>
@@ -131,9 +133,9 @@
 						<label for="student-class"><small>Select Course<sup class="text-danger">*</sup></small></label>
 						<select id="student-class" name="course" class="form-control">
 							 <option value="" selected disabled >Select Course</option>
-                                                         <option value="BF">BE</option>
+                                                         <option value="BF">BE(FT)</option>
                                                          <option value="BP">BE(PT)</option>
-                                                        <option value="MF">ME</option>
+                                                        <option value="MF">ME(FT)</option>
                                                         <option value="MP">ME(PT)</option>
                                                         <option value="MSF">MSC(FT)</option>
                                                         <option value="MSP">MSC(PT)</option>
@@ -189,7 +191,7 @@
 				</div>
 				<div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
                                      
-					<button type="submit" class="btn btn-success btn-block sign-up" type="submit">GO<i class='fas fa-user-plus'></i></button>
+					<button type="submit" class="btn btn-success btn-block sign-up" type="submit" onclick="Redirect();" >GO<i class='fas fa-user-plus'></i></button>
                                        
                                         </div>
                             	</form>

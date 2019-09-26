@@ -121,8 +121,9 @@
 			coursetype = "F";
 		}
 		else{
-			if(course.equals("B"))
+			if(course.equals("B")){
 			course = "BE";
+                        coursetype = "F";}
 		else
 			course = "ME";
 		}

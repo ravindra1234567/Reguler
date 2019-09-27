@@ -1,4 +1,4 @@
-<div class="ml-2 mr-2 row">
+                                        <div class="ml-2 mr-2 row">
 						<div class="col-lg-6 p-1">
 						<label for="student-class"><small>Select Course<sup class="text-danger">*</sup></small></label>
 						<select id="student-class" name="course" class="form-control">
@@ -74,8 +74,4 @@
 						I accept the terms and conditions.
 					</label>
 				</div>
-				<div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
-                                     
-					<button type="submit" class="btn btn-success btn-block sign-up" type="submit" onclick="Redirect();" >GO<i class='fas fa-user-plus'></i></button>
-                                       
-                                        </div>
+				

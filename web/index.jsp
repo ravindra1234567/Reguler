@@ -191,7 +191,7 @@
 				</div>
 				<div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
                                      
-					<button type="submit" class="btn btn-success btn-block sign-up" type="submit" onclick="Redirect();" >GO<i class='fas fa-user-plus'></i></button>
+					<button type="submit" class="btn btn-success btn-block sign-up" onclick="Redirect();" >GO<i class='fas fa-user-plus'></i></button>
                                        
                                         </div>
                             	</form>

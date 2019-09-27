@@ -4,7 +4,7 @@
 <%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
 <%@page import="java.util.List"%>
 <%@page import="java.io.File"%>
-<%@page import="javafx.scene.input.KeyCode" %>
+<%--<%@page import="javafx.scene.input.KeyCode" %>--%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.io.*,java.util.*"%>
 <%@page import="javax.servlet.*"%>
@@ -45,14 +45,14 @@ File f;
 
 
 <%
-    
+//    out.println("Ravindra");
        ServletContext context=getServletContext();  
        Class.forName(context.getInitParameter("Driver"));
        con=DriverManager.getConnection(context.getInitParameter("Url"),context.getInitParameter("UserName"),context.getInitParameter("Password"));
 		
-  /*session1=request.getSession();
+  session1=request.getSession();
   uname=(String)session1.getAttribute("uname");
-  pass=(String)session1.getAttribute("pass");*/
+  pass=(String)session1.getAttribute("pass");
 
    try{
           
@@ -81,7 +81,7 @@ if( fname.length()<4 || !(fname.substring(fname.length()-4)).equalsIgnoreCase(".
     item.write(f);
 //out.println("5");
      path =context.getInitParameter("Input_Path_Ex")+ item.getName();//
-    query="Load data local infile ? into table ex_student  fields terminated by ',' enclosed by '\n' lines terminated by '\r\n' ignore 1 lines (roll_no,enrollment_no,name) set sem=?,subject_code=?,subject_type=?,branch='Unknown'";
+    query="Load data local infile ? into table ex_student  fields terminated by ',' enclosed by '\n' lines terminated by '\r\n' ignore 1 lines (roll_no,enrollment_no,name) set sem=?,subject_code=?,subject_type=?,branch='Unknown', status='EX' ";
     pd=con.prepareStatement(query);
     pd.setString(1,path);
     pd.setInt(2,sem);

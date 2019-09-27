@@ -71,11 +71,6 @@
                 font-size: 20px;
                 font-family: sans-serif;
                 transition: 0.4s;
-
-
-
-
-
             }
 
             .active{
@@ -155,13 +150,37 @@
                     document.getElementById("form1").action = "reg_not_reg_ex.jsp";
             }
             /* Delete Student Ex and Regular  */
-            function delete_student(){
+            /*function delete_student(){
                 var status = document.getElementById("status").value;
-                if (status === "Regular") 
+                alert("hi");
+                if (status === "Regular"){ 
                     document.getElementById("delete_student").action = "delete_student_record.jsp";
-                else if (status == "Ex")
-                    document.getElementById("delete_student").action = "printrasaform.jsp";
-            } 
+                }
+                else(status == "Ex"){
+                    document.getElementById("delete_student").action = "payment_status.jsp";
+                }    
+        }*/
+        
+        function delete_student()
+            {
+                  
+                var status = document.getElementById("status").value;
+                alert("hi");
+                if (status === "Regular"){
+                     alert("hello");
+                    document.getElementById("f11").action = "delete_student_record.jsp";
+			
+        }else{
+                    
+                        document.getElementById("f11").action = "payment_status.jsp";
+			
+		}
+                
+                
+                
+                    //document.getElementById("f1").action = "student.jsp";
+
+            }
         </script>
     </head>
     <body>  
@@ -321,7 +340,7 @@
                     
                                     </form> -->
 <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
-			<form class="sign-up" id="s">
+			<form class="sign-up" id="f11" >
 				<div class="row">
 					<div class="col-lg-12 p-3 h2 font-weight-light bg-success text-light text-center">
 						Student List
@@ -330,6 +349,11 @@
 					</div>
                                 </div>
 					<jsp:include page="search_form.jsp" /> 
+                                        <div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
+                                     
+					<button type="submit" class="btn btn-success btn-block sign-up" onclick="delete_student();" >GO<i class='fas fa-user-plus'></i></button>
+                                       
+                                        </div>
                             	</form>
 
 			</div>

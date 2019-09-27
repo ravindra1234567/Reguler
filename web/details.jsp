@@ -149,37 +149,16 @@
                 else
                     document.getElementById("form1").action = "reg_not_reg_ex.jsp";
             }
-            /* Delete Student Ex and Regular  */
-            /*function delete_student(){
-                var status = document.getElementById("status").value;
-                alert("hi");
-                if (status === "Regular"){ 
-                    document.getElementById("delete_student").action = "delete_student_record.jsp";
-                }
-                else(status == "Ex"){
-                    document.getElementById("delete_student").action = "payment_status.jsp";
-                }    
-        }*/
-        
+            /* Delete Student Ex and Regular  */   
         function delete_student()
             {
                   
                 var status = document.getElementById("status").value;
-                alert("hi");
                 if (status === "Regular"){
-                     alert("hello");
                     document.getElementById("f11").action = "delete_student_record.jsp";
-			
-        }else{
-                    
-                        document.getElementById("f11").action = "payment_status.jsp";
-			
+                }else{
+                        document.getElementById("f11").action = "payment_status_ex.jsp";	
 		}
-                
-                
-                
-                    //document.getElementById("f1").action = "student.jsp";
-
             }
         </script>
     </head>
@@ -272,7 +251,7 @@
 
             <header>
                 <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
-                <h2>Institute Of Engineering &amp; Technology</h2>
+                <h2>Institute of Engineering &amp; Technology</h2>
                 <div class="menu">
                     <a href="admin.jsp">Admin</a>
                     <a href="index.jsp">Home</a>
@@ -501,7 +480,7 @@
 
 
                 <!--<button class="accordion" style="top:360px;position: absolute;" id="bt6">Upload Subject Schema </button>-->
-                <button class="accordion" style="top:360px;position: absolute;"  id="bt7">Upload Subject Schema </button>
+                <button class="accordion" style="top:360px;position: absolute;"  id="bt7">Make Regular Subject Schema </button>
                 <div class="panel">
                     <div id="one">
                         <form action="subjectAlloc.jsp" action="GET">
@@ -520,7 +499,7 @@
                                     <th>Select Branch</th>
                                     <td> 
                                         <select name="branch" required="">
-                                            <option value=""selected disabled>Select Branch</option>
+                                            <option value="" selected disabled>Select Branch</option>
                                             <option value="Computer Engineering">Computer Engineering</option>
                                             <option value="Electronics And Telecommunication Engineering">Electronics And Telecommunication Engineering</option>
                                             <option value="Information Technology">Information Technology</option>
@@ -562,10 +541,32 @@
                         </form>
                     </div>
                 </div>
+<button class="accordion" style="top:410px;position: absolute;" id="bt6">Upload Ex-Subject Schema </button>
+    <div class="panel">
+    <div id="one">
+        <form action="subject_schema_upload.jsp" enctype="multipart/form-data" method="post">
+       
+        <table width="650px">
+                <tr>
+                <td style="text-align: center;"><h2 style="color:#800000">Upload Ex-Subject Schema</h2>
+       
+       
+       </td>
+                </tr>
+                <tr>
+                <td align="center">
+                
+                    <input type="file" name="file" multiple="" required="" />
+        <input type="submit" value="Upload"/>
+        
+                </td>
+                </tr>
+        </table>
+        </form>
+        </div>
+  </div>
 
-
-
-                <button class="accordion" style="top:410px;position: absolute;"  id="bt7">Eligible Student</button>
+                <button class="accordion" style="top:460px;position: absolute;"  id="bt7">Eligible Student</button>
                 <!--<button class="accordion" style="position:absolute;" id="bt1">Student List ( For Deletion )</button>-->
                 <div class="panel" style="position: absolute;margin-top: 5%;">
 
@@ -628,7 +629,7 @@
 
 
 
-                <button class="accordion" style="top:460px;position: absolute;"  id="bt8">Not Eligible Student</button>
+                <button class="accordion" style="top:510px;position: absolute;"  id="bt8">Not Eligible Student</button>
                 <div class="panel" style="position: absolute;margin-top: 5%;">
 
 
@@ -688,7 +689,7 @@
                 </div>
 
 
-                <button class="accordion" style="position:absolute;top:510px;"  id="bt11">Check Subject Schema </button>
+                <button class="accordion" style="position:absolute;top:560px;"  id="bt11">Check Subject Schema </button>
                 <div class="panel" style="position: absolute;margin-top: 5%;">
                     <form action="check_schema.jsp" method="post">
                         <table style="border-style:solid;" >
@@ -748,8 +749,8 @@
                     </form><br>
 
                 </div>
-
-                <button class="accordion" style="position:absolute;top:560px" id="bt12">Payment Status</button>
+                <button class="accordion" style="top:610px;position: absolute;"  id="bt7"><a href="ex_student_fee.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Update Ex-student Subject Fees</a></button>
+                <button class="accordion" style="position:absolute;top:660px" id="bt12">Payment Status</button>
                 <div class="panel" style="position: absolute;margin-top: 5%;">
 
 
@@ -822,10 +823,10 @@
                         </table><br>
                     </form>
 
-
+                 
                 </div>
-
-                <button class="accordion" style="top:660px;position: absolute;"  id="bt7"><a href="show_permission.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Show Special Permission </a></button>
+                <button class="accordion" style="top:660px;position: absolute;"  id="bt7"><a  href="clerk_ex1.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Clerk Verification</a></button>
+                <button class="accordion" style="top:710px;position: absolute;"  id="bt7"><a href="show_permission.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Show Special Permission </a></button>
 
 
                 <!-- <button class="accordion" style="top:760px;position: absolute;" id="bt6">Upload MPonline List </button>
@@ -854,7 +855,7 @@
                         
                   </div>-->
 
-                <button class="accordion" style="top:610px;position: absolute;"  id="bt7"><a  href="credithome.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Check Subjects Credits</a></button>
+                <button class="accordion" style="top:710px;position: absolute;"  id="bt7"><a  href="credithome.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Check Subjects Credits</a></button>
             </div>
         </div>
         <script>
@@ -908,7 +909,7 @@
         </script>
 
     </body>
-    <footer style="position: relative;top:550px;">
+    <footer style="position: relative;top:800px;">
         <p align="center" id="p1">
             Exam Registration Portal
         </p>

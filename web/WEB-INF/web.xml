@@ -95,6 +95,7 @@
         <param-name>Output_Path</param-name>
         <param-value>F:\\Reguler\\web\\output\\</param-value>
     </context-param>
+    
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>

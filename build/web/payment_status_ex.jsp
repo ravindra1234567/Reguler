@@ -10,6 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="image/logo.png">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <jsp:include page="bootstrap_file.jsp" /> 
         <style>
 table {
     font-family: arial, sans-serif;
@@ -31,7 +32,7 @@ td, th {
     </head>
     <header>
 <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
-<h2>Institute Of Engineering &amp; Technology</h2>
+<h2>Institute of Engineering &amp; Technology</h2>
 <div class="menu">
 <!--  <a href="student_select.jsp">Student_Admit_Card</a>-->
  <!-- <a href="Register_sel.jsp">Student_Registration</a>-->
@@ -134,11 +135,13 @@ td, th {
         rs=pd.executeQuery();
            
         %>
+        <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
            <table border radius="1" style="border-collapse:collapse;margin-top: 20px;" width="800px" >
                <tr>
                    
               
                    <th><center>Enrollment Number</center></th>
+                   <th>Sno.</th>
                    <th><center>Roll Number</center></th>
                    <th><center>NAME</center></th>
                    <th><center>BRANCH</center></th>
@@ -150,9 +153,9 @@ td, th {
                    <th><center>DELETE</center></th>
                </tr>
         <%       
-         
+          int i = 1;
             while(rs.next()){
-  
+               
            name=(rs.getString("name")).toUpperCase();
            eno=(rs.getString("enrollment_no")).toUpperCase();
            rno=(rs.getString("roll_no")).toUpperCase();
@@ -162,8 +165,8 @@ td, th {
                  subject_type=(rs.getString("ex_student.subject_type")).toUpperCase();
          
            %>
-       
-           <tr><td><center><%=eno%></center></td>
+           <tr><td><center><%= i %></center></td>
+           <td><center><%=eno%></center></td>
            <td><center><%=rno%></center></td>
            <td><center><%= name %></center></td>
            <td><center><%= branch %></center></td>
@@ -175,7 +178,8 @@ td, th {
            <td><center><a href="delete_ex.jsp?eno=<%= eno %>&subject=<%= subject_code %>&subject_type=<%= subject_type %>" >DELETE</a></center></td>
            </tr>
            
-           <% }}
+           <%  i = i+1; }
+            }
                 else    
                 {
                 response.sendRedirect("admin.jsp");

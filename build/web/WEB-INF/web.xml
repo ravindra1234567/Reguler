@@ -88,6 +88,10 @@
         <param-value>F:\\Reguler\\web\\input\\</param-value>
     </context-param>
     <context-param>
+        <param-name>Input_Path_Ex</param-name>
+        <param-value>F:\\Reguler\\web\\ex-input-data\\</param-value>
+    </context-param>
+    <context-param>
         <param-name>Output_Path</param-name>
         <param-value>F:\\Reguler\\web\\output\\</param-value>
     </context-param>

@@ -95,6 +95,11 @@
     </style>
     <link rel="icon" href="input/logo.png">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </head>
 <header style="width: 1550px;">
@@ -364,7 +369,8 @@
 
 <div style="width: 1400px;">
     <center>
-        <input id="pay" style="margin-top: 10px" type="button" onclick="window.print()" value="   Print   "/>
+        <!--<input id="pay" style="margin-top: 10px" type="button" onclick="window.print()" value="   Print   "/>-->
+       
     </center>
 </div>
 </p>
@@ -536,6 +542,7 @@
 <div style="width: 1400px;">
     <center>
         <input id="pay" style="margin-top: 10px" type="button" onclick="window.print()" value="   Print   "/>
+        <button> <a href="index.jsp">Exit</a></button>
     </center>
 </div>
 </p>

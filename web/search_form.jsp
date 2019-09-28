@@ -29,16 +29,16 @@
 					
 					<div class="col-lg-6 p-1">
 						<label><small>Select Branch<sup class="text-danger">*</sup></small></label>
-                                                <select  id="blank_branch" name="branch" class="branch form-control">
+                                                <select   name="branch" class="blank_branch branch form-control">
                                                         <option value="" selected disabled>Select Branch</option>
                                  
                                                 </select>
-                                                <select id="branch_ME" name="branch" class="branch form-control" style="display:none">
+                                                <select  name="branch" class="branch_ME branch form-control" style="display:none">
                                                         <option value="" selected disabled>Select Branch</option>
                                                          <option value="Applied Mathematics">Applied Mathematics</option>
                                                          <option value="Applied Mathematics">Applied Mathematics</option>
                                                 </select>
-						<select id="branch_BE" name="branch" class="branch form-control" style="display:none">
+						<select  name="branch" class="branch_BE branch form-control" style="display:none">
                                                     <option value="" selected disabled>Select Branch</option>
                                                     <option value="Computer Engineering">Computer Engineering</option>
                                                     <option value="Electronics & Telecommunication Engineering">Electronics & Telecommunication Engineering</option>
@@ -47,7 +47,7 @@
                                                     <option value="Civil Engineering">Civil Engineering</option>
                                                     <option value="Electronics & Instrumentation Engineering">Electronics & Instrumentation Engineering</option>
                                                 </select>
-                                                <select id="branch_MS" name="branch" class="branch form-control" style="display:none">
+                                                <select  name="branch" class="branch_MS branch form-control" style="display:none">
                                                     <option value="" selected disabled>Select Branch</option>
                                                     <option value="Computer Engineering">Computer Engineering</option>
                                                     

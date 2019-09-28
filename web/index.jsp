@@ -140,16 +140,16 @@
 					
 					<div class="col-lg-4 p-1">
 						<label><small>Select Branch<sup class="text-danger">*</sup></small></label>
-                                                <select  id="blank_branch" name="branch" class="branch form-control">
+                                                <select  name="branch" class="blank_branch  branch form-control">
                                                         <option value="" selected disabled>Select Branch</option>
                                  
                                                 </select>
-                                                <select id="branch_ME" name="branch" class="branch form-control" style="display:none">
+                                                <select  name="branch" class="branch_ME  branch form-control" style="display:none">
                                                         <option value="" selected disabled>Select Branch</option>
                                                          <option value="Applied Mathematics">Applied Mathematics</option>
                                                          <option value="Applied Mathematics">Applied Mathematics</option>
                                                 </select>
-						<select id="branch_BE" name="branch" class="branch form-control" style="display:none">
+						<select  name="branch" class="branch_BE branch form-control" style="display:none">
                                                     <option value="" selected disabled>Select Branch</option>
                                                     <option value="Computer Engineering">Computer Engineering</option>
                                                     <option value="Electronics & Telecommunication Engineering">Electronics & Telecommunication Engineering</option>
@@ -158,7 +158,7 @@
                                                     <option value="Civil Engineering">Civil Engineering</option>
                                                     <option value="Electronics & Instrumentation Engineering">Electronics & Instrumentation Engineering</option>
                                                 </select>
-                                                <select id="branch_MS" name="branch" class="branch form-control" style="display:none">
+                                                <select  name="branch" class="branch_MS  branch form-control" style="display:none">
                                                     <option value="" selected disabled>Select Branch</option>
                                                     <option value="Computer Engineering">Computer Engineering</option>
                                                     
@@ -187,7 +187,7 @@
 				</div>
 				<div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
                                      
-					<button type="submit" class="btn btn-success btn-block sign-up" onclick="Redirect();" >GO<i class='fas fa-user-plus'></i></button>
+					<button type="submit" class="btn btn-success btn-block sign-up" onclick="Redirect();" >GO &nbsp; <i class='fas fas fa-arrow-right '></i></button>
                                        
                                         </div>
                             	</form>
@@ -201,17 +201,17 @@
                      var str =  $(this).find("option:selected").val();
                     if( (str=="MF") || (str=="MP") ){
                         $(".branch").hide();
-                        $("#branch_ME").show();
+                        $(".branch_ME").show();
                          
                     }
                     if( (str=="BF") || (str=="BP") ){
                          $(".branch").hide();
-                         $("#branch_BE").show();
+                         $(".branch_BE").show();
                          
                     }
                     if( (str=="MSF") || (str=="MSB") ){
                          $(".branch").hide();
-                         $("#branch_MS").show();
+                         $(".branch_MS").show();
                          
                     }
 		});

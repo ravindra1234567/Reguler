@@ -10,10 +10,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="input/logo.png">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="css/sol.css">
+        <jsp:include page="bootstrap_file.jsp" />
         <style>
 table {
     font-family: arial, sans-serif;

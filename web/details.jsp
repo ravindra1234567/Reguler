@@ -331,7 +331,7 @@
 					<jsp:include page="search_form.jsp" /> 
                                         <div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
                                      
-					<button type="submit" class="btn btn-success btn-block sign-up" onclick="delete_student();" >GO<i class='fas fa-user-plus'></i></button>
+					<button type="submit" class="btn btn-success btn-block sign-up" onclick="delete_student();" >GO &nbsp; <i class='fas fas fa-arrow-right '></i></button>
                                        
                                         </div>
                             	</form>
@@ -345,10 +345,22 @@
 
 
                     <div id="four">
-                        <table>
-                            <tr><td style="text-align: center;"> <h2 style="color:#800000">Print RASA Form </h2></td></tr>
-                        </table>
-                        <form  action="printrasaform.jsp" method="get">
+                        <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
+			<form class="sign-up" id="f11" >
+				<div class="row">
+					<div class="col-lg-12 p-3 h2 font-weight-light bg-success text-light text-center">
+						
+                                                Print RASA Form
+					</div>
+                                </div>
+					<jsp:include page="search_form.jsp" /> 
+                                        <div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
+                                     
+					<button type="submit" class="btn btn-success btn-block sign-up" onclick="delete_student();" >GO &nbsp; <i class='fas fas fa-arrow-right '></i></button>
+                                       
+                                        </div>
+                            	</form>
+<!--                        <form  action="printrasaform.jsp" method="get">
 
                             <table  style="border-style:groove" >
 
@@ -419,10 +431,10 @@
                             <br>
 
 
-                        </form>
+                        </form>-->
                     </div>
 
-
+                    </div>
 
                 </div>
 
@@ -480,11 +492,11 @@
 
 
 
-                <!--<button class="accordion" style="top:360px;position: absolute;" id="bt6">Upload Subject Schema </button>-->
+                <button class="accordion" style="top:360px;position: absolute;" id="bt6">Upload Subject Schema </button>
                 <button class="accordion" style="top:360px;position: absolute;"  id="bt7">Make Regular Subject Schema </button>
                 <div class="panel">
                     <div id="one">
-                        <form action="subjectAlloc.jsp" action="GET">
+                      <!--  <form action="subjectAlloc.jsp" action="GET">
                             <table style="border-style:solid;" >
                                 <tr>
                                     <th width="50%">Select Course</th>
@@ -538,8 +550,24 @@
                                         <input type="submit" value="SUBMIT" class="button" required=""></td>
                                 </tr>
                             </table><br>
+                      </form> -->
+                    <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
+			<form class="sign-up" id="f11" >
+				<div class="row">
+					<div class="col-lg-12 p-3 h2 font-weight-light bg-success text-light text-center">
+						
+                                                Make Regular Subject Schema
+					</div>
+                                </div>
+					<jsp:include page="search_form.jsp" /> 
+                                        <div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
+                                     
+					<button type="submit" class="btn btn-success btn-block sign-up" onclick="delete_student();" >GO &nbsp; <i class='fas fas fa-arrow-right '></i></button>
+                                       
+                                        </div>
+                            	</form>
 
-                        </form>
+                            </div>
                     </div>
                 </div>
 <button class="accordion" style="top:410px;position: absolute;" id="bt6">Upload Ex-Subject Schema </button>
@@ -572,7 +600,7 @@
                 <div class="panel" style="position: absolute;margin-top: 5%;">
 
 
-                    <form action="eligible_student.jsp">
+<!--                    <form action="eligible_student.jsp">
                         <table>
                             <tr><td style="text-align: center;"> <h2 style="color:#800000">Eligible Student List</h2></td></tr>
                         </table>
@@ -622,7 +650,24 @@
                             </tr>
                         </table><br>
 
-                    </form>
+                    </form>-->
+                     <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
+			<form class="sign-up" id="f11" >
+				<div class="row">
+					<div class="col-lg-12 p-3 h2 font-weight-light bg-success text-light text-center">
+						
+                                                Eligible Student
+					</div>
+                                </div>
+					<jsp:include page="search_form.jsp" /> 
+                                        <div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
+                                     
+					<button type="submit" class="btn btn-success btn-block sign-up" onclick="delete_student();" >GO &nbsp; <i class='fas fas fa-arrow-right '></i></button>
+                                       
+                                        </div>
+                            	</form>
+
+                            </div>
 
 
                 </div>
@@ -634,7 +679,7 @@
                 <div class="panel" style="position: absolute;margin-top: 5%;">
 
 
-                    <form action="not_eligible_student.jsp">
+<!--                    <form action="not_eligible_student.jsp">
                         <table>
                             <tr><td style="text-align: center;"> <h2 style="color:#800000">Eligible Student List</h2></td></tr>
                         </table>
@@ -684,7 +729,24 @@
                             </tr>
                         </table><br>
 
-                    </form>
+                    </form>-->
+                    <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
+			<form class="sign-up" id="f11" >
+				<div class="row">
+					<div class="col-lg-12 p-3 h2 font-weight-light bg-success text-light text-center">
+						
+                                                Not Eligible Student
+					</div>
+                                </div>
+					<jsp:include page="search_form.jsp" /> 
+                                        <div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
+                                     
+					<button type="submit" class="btn btn-success btn-block sign-up" onclick="delete_student();" >GO &nbsp; <i class='fas fas fa-arrow-right '></i></button>
+                                       
+                                        </div>
+                            	</form>
+
+                            </div>
 
 
                 </div>
@@ -692,70 +754,30 @@
 
                 <button class="accordion" style="position:absolute;top:560px;"  id="bt11">Check Subject Schema </button>
                 <div class="panel" style="position: absolute;margin-top: 5%;">
-                    <form action="check_schema.jsp" method="post">
-                        <table style="border-style:solid;" >
-                            <tr>
-                                <th width="50%">Select Course</th>
-                                <td><select name="course" required="">
-                                        <option value="" selected disabled>Course</option>
-                                        <option value="BE">BE</option>
-                                        <option value="ME">ME</option>
-                                        <option value="ME">MSC</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Select Branch</th>
-                                <td> 
-                                    <select name="branch" required="">
-                                        <option value="" selected disabled>Select Branch</option>
-                                        <option value="Computer Engineering">Computer Engineering</option>
-                                        <option value="Electronics And Telecommunication Engineering">Electronics And Telecommunication Engineering</option>
-                                        <option value="Information Technology">Information Technology</option>
-                                        <option value="Mechanical Engineering">Mechanical Engineering</option>
-                                        <option value="Civil Engineering">Civil Engineering</option>
-                                        <option value="Electronics And Instrumentation Engineering">Electronics And Instrumentation Engineering</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Select Semester</th>
-                                <td><select  name="sem" required="">
-                                        <option value="" selected disabled >Select sem</option>
-                                        <option value="1">1Sem</option>
-                                        <option value="2">2Sem</option>
-                                        <option value="3">3Sem</option>
-                                        <option value="4">4Sem</option>
-                                        <option value="5">5Sem</option>   
-                                        <option value="6">6Sem</option>
-                                        <option value="7">7Sem</option>
-                                        <option value="8">8Sem</option>
+                    <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
+			<form class="sign-up" id="f11" >
+				<div class="row">
+					<div class="col-lg-12 p-3 h2 font-weight-light bg-success text-light text-center">
+						
+                                                Check Subject Schema
+					</div>
+                                </div>
+					<jsp:include page="search_form.jsp" /> 
+                                        <div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
+                                     
+					<button type="submit" class="btn btn-success btn-block sign-up" onclick="delete_student();" >GO &nbsp; <i class='fas fas fa-arrow-right '></i></button>
+                                       
+                                        </div>
+                            	</form>
 
-                                    </select></td>
-                            </tr>
-                            <tr>
-                                <th>Select Course Type</th>
-                                <td><select  name="ctype" required="">
-                                        <option value="" selected disabled>Select Course Type</option>
-                                        <option value="P">PT</option>
-                                        <option value="F">FT</option>
-                                    </select></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" align="center">  <input type="hidden" value="0" name="i">
-                                    <input type="submit" value="SUBMIT" class="button" required=""></td>
-                            </tr>
-                        </table><br>
-
-                    </form><br>
-
+                            </div>
                 </div>
                 <button class="accordion" style="top:610px;position: absolute;"  id="bt7"><a href="ex_student_fee.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Update Ex-student Subject Fees</a></button>
                 <button class="accordion" style="position:absolute;top:660px" id="bt12">Payment Status</button>
                 <div class="panel" style="position: absolute;margin-top: 5%;">
 
 
-                    <form id="form1">
+<!--                    <form id="form1">
                         <table>
                             <tr><td style="text-align: center;"> <h2 style="color:#800000">Payment Status</h2></td></tr>
                         </table>
@@ -822,7 +844,23 @@
                                     <input class="btn" type="submit" name="btn" value="SUBMIT" onclick="Reg()">
                             </tr>
                         </table><br>
-                    </form>
+                    </form>-->
+                    <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
+			<form class="sign-up" id="f11" >
+				<div class="row">
+					<div class="col-lg-12 p-3 h2 font-weight-light bg-success text-light text-center">
+                                                Payment Status
+					</div>
+                                </div>
+					<jsp:include page="search_form.jsp" /> 
+                                        <div class="col-lg-12 pl-4 pr-4 mt-2 mb-2" align="center">
+                                     
+					<button type="submit" class="btn btn-success btn-block sign-up" onclick="delete_student();" >GO &nbsp; <i class='fas fas fa-arrow-right '></i></button>
+                                       
+                                        </div>
+                            	</form>
+
+                            </div>
 
                  
                 </div>
@@ -893,17 +931,17 @@
                      var str =  $(this).find("option:selected").val();
                     if( (str=="MF") || (str=="MP") ){
                         $(".branch").hide();
-                        $("#branch_ME").show();
+                        $(".branch_ME").show();
                          
                     }
                     if( (str=="BF") || (str=="BP") ){
                          $(".branch").hide();
-                         $("#branch_BE").show();
+                         $(".branch_BE").show();
                          
                     }
                     if( (str=="MSF") || (str=="MSB") ){
                          $(".branch").hide();
-                         $("#branch_MS").show();
+                         $(".branch_MS").show();
                          
                     }
 		});

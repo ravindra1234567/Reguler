@@ -98,9 +98,9 @@
             border-radius: 25px;
             border: 2px solid;
             padding: 2%;
-            width: 800px;
-            margin-left: 250px;
-            margin-right: 250px;
+            width: 70%;
+            margin-left: 0px;
+            margin-right: 0px;
             border-style: groove;
         }
     </style>
@@ -112,16 +112,29 @@
         <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="css/sol.css">
+        <jsp:include page="bootstrap_file.jsp" />
+        <script>
+            function hideme(){
+                document.getElementById('header').style.visibility = 'hidden';
+                document.getElementById('goback').style.visibility = 'hidden';
+                document.getElementById('pay').style.visibility = 'hidden';
+                setTimeout(function(){
+                    document.getElementById('header').style.visibility = 'visible';
+                    document.getElementById('goback').style.visibility = 'visible';
+                    document.getElementById('pay').style.visibility = 'visible';
+                },1000);
+            }
+        </script>
 </head>
-<header style="width: 1550px;">
+<header id="header" style="width: 1550px;">
     <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
-    <h2>Institute Of Engineering &amp; Technology</h2>
+    <h2 class="text-white">Institute of Engineering &amp; Technology</h2>
     <div class="menu">
         <a href="index.jsp">Home</a>
     </div>
 </header>
 <body>
-    <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
+    <a href="#"><button id="goback" class="btn btn-primary" style="margin-left: 10px;" onclick=" hideme();window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
     <div id="menu_bar" style="background-color:yellowgreen;margin-top: 10px;"></div>
 <center>
     
@@ -157,7 +170,7 @@
 
     <div class="relative" id="menu_bar" style="background-color:yellowgreen;margin-top: 10px;"></div>
     <center>
-        <div id="d1">
+        <div id="d1" width="100%">
 
             <hr>
             <h2 align="center"  style=" color: rgb(2,159,91);">
@@ -168,7 +181,13 @@
 
             <hr>
             <br>
-            <table border="1" style="border-collapse:collapse" width="800px">
+            <table class="table table-bordered" >
+                
+                
+                
+                
+                
+                
                 <tr><th>
                         Enrollment Number:
                     </th>
@@ -224,7 +243,7 @@
                 <h3>Opted Paper Description(Not In Sequence According To Time Table Of University)</h3>
                 <br>
             </center>
-            <table border="1" style="border-collapse:collapse" width="800px">
+            <table class="table table-bordered">
                 <tr><th>Subject Code</th>
                     <th>Subject Name</th>
                     <th>Subject Type</th>
@@ -318,7 +337,7 @@
 
 <div style="width: 1400px;">
     <center>
-        <input id="pay" style="margin-top: 0px;"  type="button" onclick="window.print()" value="Print"/>
+        <input id="pay" style="margin-top: 0px;"  type="button" onclick="hideme();window.print();" value="Print" class="btn btn-primary"/>
     </center>
 </div>
 </p>
@@ -329,7 +348,7 @@
 
 
 </body>
-<footer style="width: 1550px;">
+<footer style="">
     <div class="d-print-none">
     <p align="center" id="p1">
         Exam Registration Portal

@@ -130,13 +130,14 @@
             {
                 var status = document.getElementById("status").value;
 
-
+                alert("hi");
                 if (status === "Regular") {
 
-                    document.getElementById("f1").action = "printrasaform.jsp";
+                    document.getElementById("f111").action = "printrasaform.jsp";
                 }
-                else if (status == "Ex")
-                    document.getElementById("f1").action = "printrasaform.jsp";
+                else{
+                    document.getElementById("f111").action = "ex_student_admitcard.jsp";
+                }
 
             }
 
@@ -347,7 +348,7 @@
                         <table>
                             <tr><td style="text-align: center;"> <h2 style="color:#800000">Print RASA Form </h2></td></tr>
                         </table>
-                        <form id="f1" action="printrasaform.jsp" method="get">
+                        <form  action="printrasaform.jsp" method="get">
 
                             <table  style="border-style:groove" >
 
@@ -411,7 +412,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2" align="center"><input class="button" type="submit" name="btn" required="" onclick="Redirect()" value="Print"></td>
+                                    <td colspan="2" align="center"><input class="button" type="submit" name="btn" required=""  value="Print"></td>
                                 </tr>
                             </table>
 
@@ -826,7 +827,7 @@
                  
                 </div>
                 <button class="accordion" style="top:660px;position: absolute;"  id="bt7"><a  href="clerk_ex1.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Clerk Verification</a></button>
-                <button class="accordion" style="top:710px;position: absolute;"  id="bt7"><a href="show_permission.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Show Special Permission </a></button>
+                <button class="accordion" style="top:710px;position: absolute;"  id="bt7"> <a href="ex_show_permission.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Show Special Permission Ex-Student </a></button>
 
 
                 <!-- <button class="accordion" style="top:760px;position: absolute;" id="bt6">Upload MPonline List </button>
@@ -855,7 +856,7 @@
                         
                   </div>-->
 
-                <button class="accordion" style="top:710px;position: absolute;"  id="bt7"><a  href="credithome.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Check Subjects Credits</a></button>
+                <button class="accordion" style="top:760px;position: absolute;"  id="bt7"><a  href="credithome.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Check Subjects Credits</a></button>
             </div>
         </div>
         <script>

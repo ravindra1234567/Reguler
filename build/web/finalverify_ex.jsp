@@ -1,7 +1,7 @@
 <%-- 
     Document   : verifysuccess
     Created on : 15 Sep, 2018, 1:09:56 PM
-    Author     : lenovo
+    Author     : Ravindra
 --%>
 <%@page import="java.sql.*" 
  import="java.sql.Connection"
@@ -95,17 +95,18 @@
     
         </style>
           <link rel="stylesheet" type="text/css" href="css/index.css">
-          <link rel="icon" href="image/logo.png">
+          <link rel="icon" href="input/logo.png">
            <link rel="stylesheet" type="text/css" href="css/button.css">
            <script>
            function goBack() {
   window.history.back();
 }
 </script>
+<jsp:include page="bootstrap_file.jsp" />
 </head>
 <body>
     <header>
-<a href="index.jsp"><img id="logo" src="image/logo.png" alt="Institute of Engineering &amp; Technology"></a>
+<a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
 <h2>Institute Of Engineering &amp; Technology</h2>
 </header>
 	
@@ -115,42 +116,6 @@
               
          
 		<div id="d1">
-                    <!--<div style="background-color: #B0C4DE;text-align: left;">Student Details</div>-->
-                        
-                   <!--  <table cellpadding="4" cellspacing="1" border="1" style="border-collapse:collapse;margin-bottom: 7px;border-color: #cdcdcd" align="Center">
-                        
-                     <tr>
-                         <td>
-                    // <span>Name:</span>
-                         </td>
-                     </tr>
-                     
-                     <tr>
-                         <td>
-                   // <span>Enrollment Number:</span>
-                         </td>
-                     </tr>
-                     
-                     <tr>
-                         <td>
-                   // <span>Roll Number:</span>
-                         </td>
-                     </tr>
-                      
-                     </table>
-            <div align="center">
-            <span style="text-align:center;">
-            <input id="check1" type="checkbox" name="chkDeclaration"/>
-            <label>Fees Paid</label>
-            </span>
-            </div>
-		</div>
-        </center>
-      //  <form action="finalverify.jsp?eno=&rno=" method="post">
-           <center>
-               <input type="submit" style="margin-top: 10px" id="pay" class="button"  value="GO " disabled/>
-           </center>
-         -->
                  <a><img id="iconver" src="tick.jpg" style="height:30%"></a>
     </center>
  <footer>
@@ -159,10 +124,10 @@ Exam Registration Portal
 </p>
 <hr align="center" width="60%">
 <p align="center" id="p2">
-Developed & Designed by :- Vinod Thakure , Jayesh Punjabi and Tanveer Singh Bhatia.
+Developed & Designed by :- Hemant Sir,Ravindra Kumar Kushwaha and Sumit kr.
 
-For any queries contact 15bcs158@ietdavv.edu.in.
-Copyright © 2017 IET DAVV. All right reserved.
+        For any queries contact ravindrakushwahanwg@gmail.com.
+        Copyright © 2019 IET DAVV. All right reserved.
 </p>
 </footer>
       <script>

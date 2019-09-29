@@ -95,15 +95,15 @@
     <div class="container">
         <form action="finalverify_ex.jsp" method="post">
             <div align="right" style="margin-right: 5%;">
-                <input type="button"  value="Back"  onclick="goBack()" style="float: left;margin-top: 10px;padding-top: 10px;padding-bottom: 10px;" class="button"/>
+                <button  onclick="goBack();" style="float:left;margin-top: 10px;" class="btn btn-primary" ><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button>
 
-                <input id="pay"  type="button" onclick="window.print()" value="   Print  " style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;"  class="button"/>
-                <input type="button" onclick='selectAll()' value="Select All" style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;" class="button"/>
-                <input type="button" onclick='UnSelectAll()' value="Unselect All" style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;" class="button"/>
+                <input id="pay"  type="button" onclick="window.print()" value="   Print  " style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;"  class="btn btn-success"/>
+                <input type="button" onclick='selectAll()' value="Select All" style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;" class="btn btn-success"/>
+                <input type="button" onclick='UnSelectAll()' value="Unselect All" style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;" class="btn btn-success"/>
                 
                 
                 <!--<input type="button" class="icon-refresh" value="Refresh" style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;" class="button"/>-->
-                <input type="submit" align="left" style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;" id="pay" class="button"  value="SUBMIT"/>
+                <input type="submit" align="left" style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;" id="pay" class="btn btn-success"  value="Submit"/>
             </div>
 
 

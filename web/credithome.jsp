@@ -181,7 +181,7 @@
 
                                     </tbody>
                                 </table>
-                                <center><input type="submit" value="Save Credits" class="btn btn-primary"></center>
+                                <center><input type="submit" value="Save Credits" class="btn btn-success"></center>
                             </div>
                         </form>
                     </center>

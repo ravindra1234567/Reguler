@@ -145,9 +145,12 @@
                                  
                                                 </select>
                                                 <select  name="branch" class="branch_ME  branch form-control" style="display:none">
-                                                        <option value="" selected disabled>Select Branch</option>
-                                                         <option value="Applied Mathematics">Applied Mathematics</option>
-                                                         <option value="Applied Mathematics">Applied Mathematics</option>
+                                                         <option value="Software Engineering">Software Engineering</option>
+                                                         <option value="Information Security">Information Security</option>
+                                                         <option value="Design And Thermal">Design And Thermal</option>
+                                                         <option value="Digital Communication">Digital Communication</option>
+                                                         <option value="Industrial Engineering And Management">Industrial Engineering And Management</option>
+                                                         <option value="Digital Instrumentation">Digital Instrumentation</option>
                                                 </select>
 						<select  name="branch" class="branch_BE branch form-control" style="display:none">
                                                     <option value="" selected disabled>Select Branch</option>
@@ -160,7 +163,7 @@
                                                 </select>
                                                 <select  name="branch" class="branch_MS  branch form-control" style="display:none">
                                                     <option value="" selected disabled>Select Branch</option>
-                                                    <option value="Computer Engineering">Computer Engineering</option>
+                                                    <option value="Applied Mathematics">Applied Mathematics</option>
                                                     
                                                 </select>
 					</div>
@@ -209,7 +212,7 @@
                          $(".branch_BE").show();
                          
                     }
-                    if( (str=="MSF") || (str=="MSB") ){
+                    if( (str=="MSF") || (str=="MSP") ){
                          $(".branch").hide();
                          $(".branch_MS").show();
                          

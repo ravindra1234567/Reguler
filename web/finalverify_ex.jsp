@@ -111,7 +111,7 @@
 </header>
 	
     <center> <div align="left" style="margin-left:5%"> 
-            <input type="button"  value="Back" onclick="goBack()" style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;" class="button"/>
+            <button onclick="goBack()" style="margin-top: 10px;" class="btn btn-primary"/><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button>
             </div>
               
          

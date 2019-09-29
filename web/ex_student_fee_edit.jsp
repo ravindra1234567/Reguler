@@ -66,9 +66,9 @@ int subject;
                                 int fee=rs.getInt("fees");
                               %>
                               <tr>
-                                  <td height="50px"> <input type="number" value="<%=sub%>" name="sub" class="edit" /></td>
-                                  <td height="50px"> <input type="number" value="<%=fee%>" name="fee" class="edit" /></td>
-                                  <td><input type="submit" value="Update" class="button" ></td>
+                                  <td height="50px"> <input type="number" value="<%=sub%>" name="sub" class="edit form-control" ></td>
+                                  <td height="50px"> <input type="number" value="<%=fee%>" name="fee" class="edit form-control" ></td>
+                                  <td><input type="submit" value="Update" class=" btn btn-success " ></td>
                               </tr>
                               <%
                               

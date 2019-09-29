@@ -12,21 +12,13 @@
 						</select>
 					</div>
 						<div class="col-lg-6 p-1">
-							<label for="student-mobile"><small>Status<sup class="text-danger">*</sup></small></label>
-							<div class="input-group">
-<!--								<div class="input-group-prepend">
-									<div class="input-group-text">+91</div>
-								</div>-->
-								<select   id="status" name="status" required="" class="form-control">
-                                                                        <option value="" selected disabled >Select Status</option>
-                                                                        <option value="Regular">Regular</option>
-                                                                        <option value="Ex">Ex</option>
+							<label for="status"><small>Status<sup class="text-danger">*</sup></small></label>
+								<select name="status" required class="form-control st1 " >
+                                                                        <option value="" selected disabled  >Select Status</option>
+                                                                        <option value="Regular" >Regular</option>
+                                                                        <option value="Ex" >Ex</option>
                                                                 </select>
-							</div>
-							<small class="text-danger font-italic mobile-warning" style="display: none;">Incorrect Mobile Number</small>
                                                 </div>
-					
-					
 					<div class="col-lg-6 p-1">
 						<label><small>Select Branch<sup class="text-danger">*</sup></small></label>
                                                 <select   name="branch" class="blank_branch branch form-control">
@@ -35,8 +27,12 @@
                                                 </select>
                                                 <select  name="branch" class="branch_ME branch form-control" style="display:none">
                                                         <option value="" selected disabled>Select Branch</option>
-                                                         <option value="Applied Mathematics">Applied Mathematics</option>
-                                                         <option value="Applied Mathematics">Applied Mathematics</option>
+                                                         <option value="Software Engineering">Software Engineering</option>
+                                                         <option value="Information Security">Information Security</option>
+                                                         <option value="Design And Thermal">Design And Thermal</option>
+                                                         <option value="Digital Communication">Digital Communication</option>
+                                                         <option value="Industrial Engineering And Management">Industrial Engineering And Management</option>
+                                                         <option value="Digital Instrumentation">Digital Instrumentation</option>
                                                 </select>
 						<select  name="branch" class="branch_BE branch form-control" style="display:none">
                                                     <option value="" selected disabled>Select Branch</option>
@@ -49,7 +45,7 @@
                                                 </select>
                                                 <select  name="branch" class="branch_MS branch form-control" style="display:none">
                                                     <option value="" selected disabled>Select Branch</option>
-                                                    <option value="Computer Engineering">Computer Engineering</option>
+                                                    <option value="Applied Mathematics">Applied Mathematics</option>
                                                     
                                                 </select>
 					</div>

@@ -44,7 +44,7 @@
 	
     <center>
         
-        <table border="1" cellpadding="10px" >
+        <table class="table table-bordered" style="width:500px;">
             <tr> <th>No of Subjects</th><th>Fees Amount</th><th></th></tr>
 <%
         
@@ -66,7 +66,7 @@
                               <tr>
                                   <td> <%=sub%></td>
                                   <td><%=fee%></td>
-                                  <td><a  href="ex_student_fee_edit.jsp?subject=<%=sub%>"><button class="button">Edit</button></a></td>
+                                  <td><a  href="ex_student_fee_edit.jsp?subject=<%=sub%>"><button class="btn btn-success">Edit</button></a></td>
                               </tr>
                               <%
                               

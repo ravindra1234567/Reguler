@@ -87,20 +87,13 @@
             border-radius: 25px;
             border: 2px solid;
             padding: 2%;
-            width: 800px;
-            margin-left: 250px;
-            margin-right: 250px;
+           
             border-style: groove;
         }
     </style>
     <link rel="icon" href="input/logo.png">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+    <jsp:include page="bootstrap_file.jsp" />
 </head>
 <header style="width: 1550px;">
     <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
@@ -110,8 +103,10 @@
     </div>
 </header>
 <body>
+    <div class="container mx-auto">
+            <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
     <div id="menu_bar" style="background-color:yellowgreen;margin-top: 10px;"></div>
-<center>
+
     <div id="d1">
         <hr>
         <h3 align="center">
@@ -119,15 +114,15 @@
         </h3>
         <hr>
 
-        <div style="background-color: #B0C4DE;text-align: left;">
+        <div style="background-color: #B0C4DE;text-align: center;">
             Opted Paper Description(Not In Sequence According To Time Table Of University)
         </div>
-        <table cellpadding="4" cellspacing="1" border="1" style="border-collapse:collapse;margin-bottom: 7px;border-color: #cdcdcd" align="Center">
+        <table class="table table-bordered shadow">
             <tr>
 
-                <td align="left">
+                <th align="left">
                     Name of College(Code)
-                </td>
+                </th>
                 <td align="left" colspan="4">
                     <span>
                         INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (IET), INDORE(808)</span>
@@ -139,15 +134,15 @@
             </tr>
             <tr>
 
-                <td align="left">
+                <th align="left">
                     Registration for Examination
-                </td>
+                </th>
                 <td align="left">
                     <span>Dec-2019</span>
                 </td>
-                <td align="left">
+                <th align="left">
                     Examination Centre(Code)
-                </td>
+                </th>
                 <td align="left" colspan="2">
                     <span>INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (IET), INDORE(808)</span>
                 </td>
@@ -155,82 +150,82 @@
             </tr>
             <tr>
 
-                <td align="left">
+                <th>
                     Name of Course
-                </td>
-                <td align="left">
+                </th>
+                <td>
                     <span><%%></span>
                 </td>
-                <td align="left">
+                <th>
                     Programme/Branch(Code)
-                </td>
-                <td align="left">
+                </th>
+                <th>
                     <div><%= branch%></div>
-                </td>
-                <td align="left">
+                </th>
+                <th>
                     Semester
-                </td>
-                <td align="left">
+                </th>
+                <td>
                     <span><%= sem%></span>
                 </td>
 
             </tr>
             <tr>
 
-                <td align="left">
+                <th>
                     Enrollment No.
-                </td>
-                <td align="left">
+                </th>
+                <td>
                     <span><%= enrollment_no%></span>
                 </td>
-                <td align="left">
+                <th>
                     Roll No
-                </td>
-                <td align="left">
+                </th>
+                <td>
                     <span><%= roll_no %></span>
                 </td>
-                <td align="left">
+                <th>
                     Class
-                </td>
-                <td align="left">
+                </th>
+                <td>
                     <span><%= year%></span>
                 </td>
 
             </tr>
             <tr>
-                <td align="left">
+                <th>
                     Name of Examinee
-                </td>
-                <td align="left">
+                </th>
+                <td>
                     <div><%= name%></div>
                 </td>
 
 
-                <td align="left">
+                <th>
                     Status
-                </td>
-                <td align="left">
+                </th>
+                <td>
                     <span><%= "Reguler"%></span>
                 </td>
 
-                <td align="left">
+                <th>
                     Gender
-                </td>
+                </th>
                 <td align="left">
                     <span></span>
                 </td>
             </tr>
             <tr>
 
-                <td align="left">
+                <th>
                     Father's Name 
-                </td>
-                <td align="left" colspan="2">
+                </th>
+                <td colspan="2">
                     <div></div>
                 </td>
-                <td align="left">
+                <th>
                     Mother's Name
-                </td>
+                </th>
                 <td align="left" colspan="2">
                     <span></span>
                 </td>
@@ -239,15 +234,15 @@
 
             <tr>
 
-                <td align="left">
+                <th>
                     Category
-                </td>
+                </th>
                 <td align="left" colspan="2">
                     <div></div>
                 </td>
-                <td align="left" >
+                <th>
                     Mobile NO
-                </td>
+                </th>
                 <td align="left" colspan="2">
                     <span></span>
                 </td>
@@ -255,23 +250,23 @@
 
             </tr>
 
-            <tr><td align="left">
+            <tr><th>
                     Present Address
-                </td>
+                </th>
                 <td align="left" colspan="5">
                     <div></div>
                 </td></tr>
             <tr>
 
-                <td align="left">
+                <th>
                     City
-                </td>
+                </th>
                 <td align="left" colspan="2">
                     <span></span>
                 </td>
-                <td align="left">
+                <th>
                     District
-                </td>
+                </th>
                 <td align="left" colspan="2">
                     <span></span>
                 </td>
@@ -280,18 +275,18 @@
 
 
         </table>
-        <div class="head1" style="z-index: 730;background-color: #B0C4DE;text-align: left;">
+        <div class="head1" style="z-index: 730;background-color: #B0C4DE;text-align: center ;">
             Subject Description
         </div>
-        <table cellspacing="0" rules="all" border="1" id="grdSubject" style="width:100%;border-collapse:collapse;">
+        <table class="table table-bordered shadow ">
             <tr>
-               	<th align="left">
+               	<th>
                     Paper Code
                 </th>
-                <th align="left">
+                <th>
                     Paper Description
                 </th>
-                <th align="left">
+                <th>
                     Paper Type
                 </th>
             </tr>
@@ -359,7 +354,7 @@
             %>       
             
         </table>
-    </div>
+    <!--</div>-->
 
 
 <%
@@ -378,13 +373,13 @@
 
 
 
+    </div>
 
 
-<p style="page-break-after:always"></p>
-<center> 
+<p style="page-break-after:always"></p> 
 
     <div class="relative" id="menu_bar" style="background-color:yellowgreen;margin-top: 10px;"></div>
-    <center>
+    
         <div id="d1">
 
             <hr>
@@ -396,7 +391,7 @@
 
             <hr>
             <br>
-            <table border="1" style="border-collapse:collapse" width="800px">
+            <table class="table table-bordered shadow">
                 <tr><th>
                         Enrollment Number:
                     </th>
@@ -452,7 +447,7 @@
                 <h3>Opted Paper Description(Not In Sequence According To Time Table Of University)</h3>
                 <br>
             </center>
-            <table border="1" style="border-collapse:collapse" width="800px">
+            <table class="table table-bordered shadow">
                 <tr><th>Subject Code</th>
                     <th>Subject Name</th>
                     <th>Subject Type</th>
@@ -533,24 +528,20 @@
 
             </table>
 
-        </div>   </center>
-</center>
+        </div>   
 
 
 
 
-<div style="width: 1400px;">
+
+<!--<div style="width: 1400px;">-->
     <center>
-        <input id="pay" style="margin-top: 10px" type="button" onclick="window.print()" value="   Print   "/>
-        <button> <a href="index.jsp">Exit</a></button>
+        <input id="pay" style="margin-top: 10px" type="button" onclick="window.print()" value="Print" class="btn btn-success"/>
+        <button class="btn btn-danger"> <a href="index.jsp">Exit</a></button>
     </center>
-</div>
+<!--</div>-->
 </p>
-
-
-</center>
-
-
+    </div>
 
 </body>
 <footer style="width: 1550px;">

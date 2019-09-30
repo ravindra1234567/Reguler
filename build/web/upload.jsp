@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 
 <html>
     <head>
@@ -8,15 +8,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="popup.css">
         <link rel="icon" href="input/logo.png">
+        <jsp:include page="bootstrap_file.jsp" /> 
         <style>
             form{
                 /*                background-image: url("image/logo.png");
                                 background-repeat: no-repeat;*/
-                width: 100%;
+                width: 50%;
+                
             }
-            body{
-                overflow-x: hidden;
-            }
+            
 
         </style>
 
@@ -53,67 +53,57 @@
 //            status = (String) session1.getAttribute("s");
 //            ServletContext context = getServletContext();
             %>
-            <div class="panel" style="position: absolute;margin-top: 5%;">
-                <div class="panel">
-
-                    <div >
-
-                        <table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC" >
-                            <tr>
+            <div class="container mx-auto">
+                        <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
+                <center>
+                    
                             <form name="f1" method="post" action="submit.jsp?enrollmentno=<%= eno %>" enctype="multipart/form-data" >
-                                <td>
-                                    <table width="400" height="200" border="4" cellpadding="5" cellspacing="5" bgcolor="#FFFFFF">
+                                
+                                    <table class="table table-bordered" >
                                         <tr>
                                             <td colspan="3" align="center">
                                                 <div style="color:blue;"><b>Upload Slip </b></div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td width="100%">
-                                                <div style="font-size:17px;"><center><strong>Session</strong> </center></div>
+                                            <td >
+                                                <div style="font-size:17px;"><strong>Session</strong></div>
                                             </td>
-                                            <td width="6">:</td>
-                                            <td><select name="session"  required>
+                                            <td >:</td>
+                                            <td><select name="session" class="form-control" required>
                                                     <option value="" selected disabled >Select Session</option>
                                                     <option value="July-Dec-2019">July-Dec-2019</option>
                                                     <option value="Jan-may-2020">Jan-may-2020</option>
                                                 </select></td>
                                         </tr>
                                         <tr>
-                                            <td width="100">
-                                                <div style="font-size:17px;"><center><strong>Application Id</strong></center></div>
+                                            <td>
+                                                <div style="font-size:17px;"><strong>Application Id</strong></div>
                                             </td>
-                                            <td width="6">:</td>
-                                            <td width="294"><input type="text" name="application_id" required /></td>
+                                            <td>:</td>
+                                            <td><input type="text" name="application_id"class="form-control" placeholder="Enter Application Id"  required /></td>
                                         </tr>
                                         <tr>
                                             <td width="78">
-                                                <div style="font-size:17px;"><center><strong>Choose file</strong></center></div>
+                                                <div style="font-size:17px;"><strong>Choose file</strong></div>
                                             </td>
-                                            <td width="6">:</td>
-                                            <td width="294"><input type="file" name="image" required /></td>
+                                            <td>:</td>
+                                            <td><input type="file" class="form-control" name="image"  required /></td>
                                         </tr>
                                         <tr>
                                             <td colspan="3">
                                                 <center>
-                                                    <input type="submit"  name="submit" value="Submit"> 
+                                                    <input type="submit"  name="submit" value="Submit" class="btn btn-success"> 
                                                     &nbsp;&nbsp;&nbsp;
 
                                                 </center>
                                             </td>
                                         </tr>
                                     </table>
-                                </td>
-                            </form>
-                            </tr>
-                        </table>
-
+                                
+                           </form></center>
                     </div>
-
-
-                </div>
-
-                <!--</div>-->
+            </div>               
         </body>
         <footer style="position: relative;top:10px;">
             <p align="center" id="p1">

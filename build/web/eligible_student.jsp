@@ -21,6 +21,7 @@
         <link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="css/sol.css">
+        <jsp:include page="bootstrap_file.jsp" />
         <style>
 table {
     font-family: arial, sans-serif;

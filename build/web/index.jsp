@@ -20,16 +20,15 @@
             function Redirect()
             {
                   
-                var status = document.getElementById("status").value;
-                
-                if (status === "Regular"){
+                //var status = document.getElementById("status").value;
+                var a = demo1.status.value;
+//                alert(a);
+                if ( a === "Regular" ){
                     
                     document.getElementById("f1").action = "student_registration.jsp";
 			
         }else{
-                    
-                        alert("Record Not Found.........");
-			window.location="index.jsp";
+                    document.getElementById("f1").action = "ex_student.jsp";
 			
 		}
                 
@@ -99,7 +98,7 @@
     <body>
      <div class="container">
         <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
-			<form class="sign-up" id="f1">
+			<form class="sign-up" id="f1" name="demo1">
 				<div class="row">
 					<div class="col-lg-12 p-3 h2 font-weight-light bg-success text-light text-center">
 						Examination Registration Portal
@@ -138,13 +137,14 @@
 						</select>
 					</div>
 					
-					<div class="col-lg-4 p-1">
+				<div class="col-lg-4 p-1">
 						<label><small>Select Branch<sup class="text-danger">*</sup></small></label>
-                                                <select  name="branch" class="blank_branch  branch form-control">
+                                                <select   name="branch" class="blank_branch branch form-control">
                                                         <option value="" selected disabled>Select Branch</option>
                                  
                                                 </select>
-                                                <select  name="branch" class="branch_ME  branch form-control" style="display:none">
+                                                <select  name="branch" class="branch_ME branch form-control" style="display:none">
+                                                        <option value="" selected disabled>Select Branch</option>
                                                          <option value="Software Engineering">Software Engineering</option>
                                                          <option value="Information Security">Information Security</option>
                                                          <option value="Design And Thermal">Design And Thermal</option>
@@ -161,7 +161,7 @@
                                                     <option value="Civil Engineering">Civil Engineering</option>
                                                     <option value="Electronics & Instrumentation Engineering">Electronics & Instrumentation Engineering</option>
                                                 </select>
-                                                <select  name="branch" class="branch_MS  branch form-control" style="display:none">
+                                                <select  name="branch" class="branch_MS branch form-control" style="display:none">
                                                     <option value="" selected disabled>Select Branch</option>
                                                     <option value="Applied Mathematics">Applied Mathematics</option>
                                                     

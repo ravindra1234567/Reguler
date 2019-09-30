@@ -4,11 +4,9 @@
         <title>Exam Registration</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Quicksand:300|Rajdhani:300|Raleway" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="icon" href="input/logo.png">
-
+        <jsp:include page="bootstrap_file.jsp" />
 
         <style>
             .genText{
@@ -62,8 +60,8 @@
         <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
         <h2>Institute Of Engineering &amp; Technology</h2>
         <div class="menu">
-            <a href="student_select.jsp">Student_Admit_Card</a>
-            <a href="clerk.jsp">Clerk Verification</a>
+            <a href="student_select.jsp">Student Admit Card</a>
+            
             <a href="admin.jsp">Admin</a>
             <a href="index.jsp">Home</a>
         </div>
@@ -105,10 +103,10 @@
         branch = request.getParameter("branch");
         course = request.getParameter("course");
 //        out.println("eno = "+eno);
-//        out.println("status1 = "+status1);
-//        out.println("sem1 = "+sem1);
-//        out.println("branch = "+ branch);
-//        out.println("course = "+course);
+//        out.println("<br>status1 = "+status1);
+//        out.println("<br>sem1 = "+sem1);
+//        out.println("<br>branch = "+ branch);
+//       out.println("course = "+course);
         
         
         	String str = course;
@@ -179,10 +177,6 @@
             border-radius: 25px;
             border: 2px solid;
             padding: 2%;
-            width: 800px;
-            margin-top: 20px;
-            margin-left: 180px;
-            margin-right: 180px;
             border-style: groove;
         }
         .footer {
@@ -205,7 +199,8 @@
 </head>
 <body>
 <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
-<center>
+<div class="container mx-auto">
+    
     <div id="d1">
         <hr>
         <h3 align="center">
@@ -214,16 +209,16 @@
         <hr>
 
         <div style="background-color: #B0C4DE;text-align: left;">
-            Student Detail
+                <center> Student Detail</center>
         </div>
         <form action="upload.jsp?enrollmentno=<%= eno %>" method="get" >
 
             <table cellpadding="4" cellspacing="1" border="1" style="border-collapse:collapse;margin-bottom: 7px;border-color: #cdcdcd" align="Center">
                 <tr>
 
-                    <td align="left">
+                    <th align="left">
                         Name of College(Code)
-                    </td>
+                    </th>
                     <td align="left" colspan="4">
                         <span>
                             INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (IET), INDORE(808)</span>
@@ -235,15 +230,15 @@
                 </tr>
                 <tr>
 
-                    <td align="left">
+                    <th align="left">
                         Registration for Examination
-                    </td>
+                    </th>
                     <td align="left">
                         <span>JULY 2019</span>
                     </td>
-                    <td align="left">
+                    <th align="left">
                         Examination Centre(Code)
-                    </td>
+                    </th>
                     <td align="left" colspan="2">
                         <span>INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (IET), INDORE(808)</span>
                     </td>
@@ -251,65 +246,65 @@
                 </tr>
                 <tr>
 
-                    <td align="left">
+                    <th>
                         Name of Course
-                    </td>
-                    <td align="left">
+                    </th>
+                    <td>
                         <span>BE</span>
                     </td>
-                    <td align="left">
+                    <th>
                         Programme/Branch
-                    </td>
-                    <td align="left">
+                    </th>
+                    <td>
                         <div><%= branch%></div>
                     </td>
-                    <td align="left">
+                    <th>
                         Semester
-                    </td>
-                    <td align="left">
+                    </th>
+                    <td>
                         <span><%= sem1%></span>
                     </td>
 
                 </tr>
                 <tr>
 
-                    <td align="left">
+                    <th>
                         Enrollment No.
-                    </td>
-                    <td align="left">
+                    </th>
+                    <td>
                         <span><%= eno%></span>
                     </td>
-                    <td align="left">
+                    <th>
                         Roll No.
-                    </td>
-                    <td align="left">
+                    </th>
+                    <td>
                         <span><%= rollno%></span>
                     </td>
-                    <td align="left">
+                    <th>
                         Class
-                    </td>
-                    <td align="left">
+                    </th>
+                    <td>
                         <span><%= year %></span>
                     </td>
 
                 </tr>
                 <tr>
-                    <td align="left">
+                    <th>
                         Name of Examinee
-                    </td>
+                    </th>
                     <td align="left">
                         <div><%= name%></div>
                     </td>
 
-                    <td align="left">
+                    <th>
                         Status
-                    </td>
+                    </th>
                     <td align="left">
                         <span><%= status1%></span>
                     </td>
-                    <td align="left">
+                    <th>
                         Gender
-                    </td>
+                    </th>
                     <td align="left">
                         <span></span>
                     </td>
@@ -317,15 +312,15 @@
                 </tr>
                 <tr>
 
-                    <td align="left">
+                    <th>
                         Father's Name 
-                    </td>
+                    </th>
                     <td align="left" colspan="2">
                         <div></div>
                     </td>
-                    <td align="left">
+                    <th>
                         Mother's Name
-                    </td>
+                    </th>
                     <td align="left" colspan="2">
                         <span></span>
                     </td>
@@ -334,15 +329,15 @@
 
                 <tr>
 
-                    <td align="left">
+                    <th>
                         Category
-                    </td>
+                    </th>
                     <td align="left" colspan="2">
                         <div></div>
                     </td>
-                    <td align="left" >
+                    <th >
                         Mobile NO
-                    </td>
+                    </th>
                     <td align="left" colspan="2">
                         <span></span>
                     </td>
@@ -350,49 +345,42 @@
 
                 </tr>
 
-                <tr><td align="left">
+                <tr><th>
                         Present Address
-                    </td>
+                    </th>
                     <td align="left" colspan="5">
                         <div></div>
                     </td></tr>
                 <tr>
 
-                    <td align="left">
+                    <th>
                         City
-                    </td>
+                    </th>
                     <td align="left" colspan="2">
                         <span></span>
                     </td>
-                    <td align="left">
+                    <th>
                         District
-                    </td>
+                    </th>
                     <td align="left" colspan="2">
                         <span></span>
                     </td>
 
                 </tr>     
             </table>
-<!--                    <div class="head1" style="z-index: 730;background-color: #B0C4DE;text-align: left;">
-                <center>Transaction Id</center>
-            </div><br>
-                <div aling="center"> 
-                    <span style="margin-right:10px;">Application Number</span> <input type="text" name="tid" size="50" placeholder="Enter Application Number" required />
-                    
-                </div><br>-->
                     <div class="head1" style="z-index: 730;background-color: #B0C4DE;text-align: left;">
                 <center>Subject Description</center>
             </div>
-            <table cellspacing="0" rules="all" border="1" id="grdSubject" style="width:100%;border-collapse:collapse;">
+<table class="table table-bordered">
                 <tr>
-                    <th align="left">
+                    <th>
                         Paper Code
                     </th>
-                    <th align="left">
+                    <th>
                         Paper Description
                     </th>
 
-                    <th align="left">
+                    <th>
                         Paper Type
                     </th>
                     <!--<th align="left">Select Subjects</th>-->
@@ -456,7 +444,7 @@
                         
                     }
                      else {
-                        response.sendRedirect("index.jsp");
+                       // response.sendRedirect("index.jsp");
                     }
 
 
@@ -467,7 +455,7 @@
             <div align="center">
                 <span style="text-align:center;">
                     <input id="check" type="checkbox" name="chkDeclaration"/>
-                    <label>CERTIFIED THAT</label>
+                    <label><b>CERTIFIED THAT</b></label>
                 </span>
             </div>
 
@@ -478,11 +466,11 @@
             </div>
 
     </div>
-</center>
+</div>
 <center>
 
-    <input type="submit" style="margin-top: 10px" id="pay" class="button"  value="   Proceed To Register   " disabled/>
-</center>
+    <input type="submit" style="margin-top: 10px" id="pay" class="btn btn-success"  value="Go ->" disabled/>
+</center><br>
 <input type="hidden" name="fee1" value="<%=fee1%>">  
 <script>
 
@@ -521,11 +509,11 @@
 <script>
     if (window.confirm("No Records Found"))
     {
-        window.location = "index.jsp";
+       // window.location = "index.jsp";
     }
     else
     {
-        window.location = "index.jsp";
+        //window.location = "index.jsp";
     }
 
 </script>

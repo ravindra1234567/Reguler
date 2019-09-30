@@ -8,6 +8,7 @@
         <link rel="icon" href="input/logo.png">
         <jsp:include page="bootstrap_file.jsp" />
 
+
         <style>
             .genText{
                 font-family: 'Quicksand', sans-serif;
@@ -67,19 +68,17 @@
         </div>
     </header>
 
-    <%! Connection con;
-        String eno;
+    <%! String eno;
         String sub_codes[];
         String en;
+        String image;
         String name;
         String status1;
-        int sem1;
+        String sem1;
         String branch;
         String scheme_id;
-        String subject_name;
-        String subtype;
-        String section;
-        String subcode;
+        String subject;
+        String subject_code;
         String address;
         String rollno;
         String district;
@@ -87,52 +86,17 @@
         String category;
         String course;
         String house_no, colony;
-        String year;
         int count;
         int sem_num;
-        String st1 = "";
         String sub_type, sub_type1;
         int fee1 = 0;
-        String coursetype;
     %>
     <%
 
         eno = (request.getParameter("enrollmentno")).toUpperCase();
         status1 = request.getParameter("status");
-        sem1 = Integer.parseInt(request.getParameter("sem"));
-        branch = request.getParameter("branch");
-        course = request.getParameter("course");
-//        out.println("eno = "+eno);
-//        out.println("<br>status1 = "+status1);
-//        out.println("<br>sem1 = "+sem1);
-//        out.println("<br>branch = "+ branch);
-//       out.println("course = "+course);
-        
-        
-        	String str = course;
-		 course = str.substring(0,1);
-                 coursetype = str.substring(1,2);
-		
-		
-		if(str.equals("MSF"))
-		{
-			course = "MSC";
-			coursetype = "F";
-		}
-		else if(str.equals("MSP"))
-		{
-			course = "MSC";
-			coursetype = "P";
-		}
-		else{
-			if(course.equals("B"))
-			course = "BE";
-                        else
-			course = "ME";
-                    }
-	//	System.out.println("course = "+ course);
-		//System.out.println("coursetype = "+ coursetype);
-        
+        sem1 = request.getParameter("sem");
+
         HttpSession s = request.getSession();
         s.setAttribute("e", eno);
         s.setAttribute("s", status1);
@@ -141,25 +105,18 @@
 
             ServletContext context = getServletContext();
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection(context.getInitParameter("Url"), context.getInitParameter("UserName"), context.getInitParameter("Password"));
+            Connection con = DriverManager.getConnection(context.getInitParameter("Url"), context.getInitParameter("UserName"), context.getInitParameter("Password"));
 
-            //PreparedStatement ps = con.prepareStatement("SELECT roll_no,enrollment_no,name,year,branch,section,subcode,subtype,subject_name from all_students,schema_table,subject_table where subject_table.subject_code=schema_table.subcode and  all_students.enrollment_no=? and all_students.sem=? ");
-//            PreparedStatement ps = con.prepareStatement("SELECT roll_no,enrollment_no,name,year,branch1,section,subcode,subtype,subject_name,sem1 from all_students,schema_table,subject_table where all_students.enrollment_no = ? and all_students.sem1=?  and schema_table.sem =? and schema_table.branch=? and schema_table.course = ? and schema_table.coursetype = ? and subject_table.subject_code=schema_table.subcode ");
-            PreparedStatement ps = con.prepareStatement(" SELECT roll_no,enrollment_no,name,year,branch1,section,subcode,subtype,subject_name,sem1 from all_students,schema_table,subject_table where enrollment_no=? and sem1=? and sem=? and coursetype=? and  course=? and branch=? and subject_table.subject_code=schema_table.subcode ");
-                                                            
+            PreparedStatement ps = con.prepareStatement("select * from ex_student where enrollment_no=? and sem=?");
             ps.setString(1, eno);
-            ps.setInt(2, sem1);
-            ps.setInt(3,sem1);
-            ps.setString(6,branch );
-            ps.setString(5, course );
-            ps.setString(4, coursetype );
+            ps.setString(2, sem1);
+
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
 
-                branch = rs.getString("branch1");
+                branch = rs.getString("branch");
                 rollno = rs.getString("roll_no");
                 name = rs.getString(3);
-                year = rs.getString("year");
                 s.setAttribute("name", name);
 
 
@@ -189,19 +146,13 @@
             color: white;
             text-align: center;
         }
-         .input{
-        font-size: 15px;
-        width: 800px;
-        height:27px;
-        
- }
     </style>
 </head>
 <body>
-<a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
-<div class="container mx-auto">
-    
-    <div id="d1">
+
+    <div class="container mx-auto">
+   <br> <div id="d1">
+        
         <hr>
         <h3 align="center">
             UTD Pay-Unpaid Examination Form/Print Reciept
@@ -209,11 +160,11 @@
         <hr>
 
         <div style="background-color: #B0C4DE;text-align: left;">
-                <center> Student Detail</center>
+            Student Detail
         </div>
-        <form action="upload.jsp?enrollmentno=<%= eno %>" method="get" >
+        <form action="challanupload.jsp">
 
-            <table cellpadding="4" cellspacing="1" border="1" style="border-collapse:collapse;margin-bottom: 7px;border-color: #cdcdcd" align="Center">
+            <table class="table table-bordered">
                 <tr>
 
                     <th align="left">
@@ -230,13 +181,13 @@
                 </tr>
                 <tr>
 
-                    <th align="left">
+                    <th>
                         Registration for Examination
                     </th>
-                    <td align="left">
-                        <span>JULY 2019</span>
+                    <td>
+                        <span>DEC 2018</span>
                     </td>
-                    <th align="left">
+                    <th>
                         Examination Centre(Code)
                     </th>
                     <td align="left" colspan="2">
@@ -249,19 +200,19 @@
                     <th>
                         Name of Course
                     </th>
-                    <td>
+                    <td align="left">
                         <span>BE</span>
                     </td>
                     <th>
-                        Programme/Branch
+                        Programme/Branch(Code)
                     </th>
-                    <td>
+                    <td align="left">
                         <div><%= branch%></div>
                     </td>
                     <th>
-                        Semester
+                        Semester/Year
                     </th>
-                    <td>
+                    <td align="left">
                         <span><%= sem1%></span>
                     </td>
 
@@ -269,22 +220,22 @@
                 <tr>
 
                     <th>
-                        Enrollment No.
+                        Roll No./Enrollment No.
                     </th>
-                    <td>
+                    <td align="left">
                         <span><%= eno%></span>
                     </td>
                     <th>
                         Roll No.
                     </th>
-                    <td>
+                    <td align="left">
                         <span><%= rollno%></span>
                     </td>
                     <th>
                         Class
                     </th>
-                    <td>
-                        <span><%= year %></span>
+                    <td align="left">
+                        <span></span>
                     </td>
 
                 </tr>
@@ -335,7 +286,7 @@
                     <td align="left" colspan="2">
                         <div></div>
                     </td>
-                    <th >
+                    <th>
                         Mobile NO
                     </th>
                     <td align="left" colspan="2">
@@ -368,90 +319,89 @@
 
                 </tr>     
             </table>
-                    <div class="head1" style="z-index: 730;background-color: #B0C4DE;text-align: left;">
-                <center>Subject Description</center>
+
+            <div class="head1" style="z-index: 730;background-color: #B0C4DE;text-align: left;">
+                Subject and Fees Description
             </div>
-<table class="table table-bordered">
+                    <table class="table table-bordered">
                 <tr>
-                    <th>
+                    <th align="left">
                         Paper Code
                     </th>
-                    <th>
+                    <th align="left">
                         Paper Description
                     </th>
 
-                    <th>
+                    <th align="left">
                         Paper Type
                     </th>
-                    <!--<th align="left">Select Subjects</th>-->
+                    <th align="left">Select Subjects</th>
                 </tr>
 
 
                 <%
-                   
-                    con = DriverManager.getConnection(context.getInitParameter("Url"), context.getInitParameter("UserName"), context.getInitParameter("Password"));
-                  
-                    //PreparedStatement ps1 = con.prepareStatement("SELECT subcode,subtype,subject_name from all_students,schema_table,subject_table where subject_table.subject_code=schema_table.subcode and schema_table.rollno=all_students.roll_no and all_students.enrollment_no=? and all_students.sem=? ");
-                    PreparedStatement ps1 = con.prepareStatement("SELECT subcode,subtype,subject_name from schema_table,subject_table where schema_table.sem =? and schema_table.branch=? and schema_table.course = ? and  schema_table.coursetype = ? and subject_table.subject_code=schema_table.subcode");
-                
-                    ps1.setInt(1, sem1);
-                    ps1.setString(2,branch);
-                    ps1.setString(3,course);
-                    ps1.setString(4, coursetype);
+                    sem1 = sem1.substring(0, 1);
+                    sem_num = Integer.parseInt(sem1);
 
-                    ResultSet rs1 = ps1.executeQuery();
-                    
-                    if (rs1!=null) {
-                             //out.println("hello3");
-//                        branch = rs1.getString("branch");
-//                        course = rs1.getString("course");
-                       while(rs1.next()) {
-                                 
-                            subtype = rs1.getString("subtype");
-//                            out.println(subtype);
-                            subcode = rs1.getString("subcode");
-                            subject_name = rs1.getString("subject_name");
-                            String st="";
-                            if(subtype.equals("0")) {
-                                st += "T";
-                            } else if (subtype.equals("1")) {
-                                st += "P";
+                    PreparedStatement ps2 = con.prepareStatement("select distinct * from subschema inner join ex_student on subschema.subject_code=ex_student.subject_code  where ex_student.enrollment_no=? and subschema.branch=? and ex_student.reg='N' and subschema.sem=? ");
+                    ps2.setString(1, eno);
+                    ps2.setString(2, branch);
+                    ps2.setInt(3, sem_num);
+                    ResultSet rs2 = ps2.executeQuery();
+                    count = 0;
+                    if (rs2.next()) {
+                        branch = rs2.getString("branch");
+                        course = rs2.getString("course");
+                        do {
+                            count += 1;
+                            subject = (rs2.getString("subject_name")).toUpperCase();
+                            subject_code = rs2.getString("subject_code");
+                            sub_type = rs2.getString("subject_type");
+
+                            key = subject_code + sub_type;
+                            if (sub_type.equals("T")) {
+                                sub_type1 = "Theory";
                             } else {
-                                st += "T+P";
+                                sub_type1 = "Practical";
                             }
 
-                        st1=st;
-                    
-                   
                 %>
 
                 <tr>
                     <td>
-                        <span><%=subcode%></span>
+                        <span><%=subject_code%></span>
                     </td>
                     <td>
-                        <span><%= subject_name%></span>
+                        <span><%= subject%></span>
                     </td>
                     <td>
-                        <span><%= st1 %></span>
+                        <span><%= sub_type1%></span>
                     </td>
-                    <!--<td><input type="checkbox" name="sub_code" value=<%=key%> /></td>-->
+                    <td><input type="checkbox" name="sub_code" value=<%=key%> /></td>
 
                 </tr>
                 <%
+                    } while (rs2.next());
+                %>                                   
 
-                        }
-                        
+                <%	} else {
+                        response.sendRedirect("index.jsp");
                     }
-                     else {
-                       // response.sendRedirect("index.jsp");
+                    if (count == 1) {
+                        fee1 = 690;
+                    } else if (count == 2) {
+                        fee1 = 1165;
+                    } else if (count > 2) {
+                        fee1 = 1650;
                     }
 
+                    String fee = Integer.toString(fee1);
+                    s.setAttribute("fee1", fee);
 
                 %>                
-                
+
             </table>
-           
+
             <div align="center">
                 <span style="text-align:center;">
                     <input id="check" type="checkbox" name="chkDeclaration"/>
@@ -469,8 +419,12 @@
 </div>
 <center>
 
-    <input type="submit" style="margin-top: 10px" id="pay" class="btn btn-success"  value="Go ->" disabled/>
-</center><br>
+    <input type="submit" style="margin-top: 10px" id="pay" class="btn btn-success"  value="GO ->" disabled/>
+    </center><br>
+<!--  <div class="footer">
+<p> copyright IET, DAVV</p>
+<p> Designed and Developed By :- </p>
+</div>-->
 <input type="hidden" name="fee1" value="<%=fee1%>">  
 <script>
 
@@ -479,8 +433,7 @@
     var sendbtn = document.getElementById('pay');
     // when unchecked or checked, run the function
 
-    checker.onchange = function ()
-    {
+    checker.onchange = function () {
 
         if (this.checked)
         {
@@ -496,7 +449,6 @@
 
     }
 </script> 
-<input type="hidden" name="enrollmentno" value=<%= eno %> />
 </form> 
 
 </body>
@@ -509,11 +461,11 @@
 <script>
     if (window.confirm("No Records Found"))
     {
-       // window.location = "index.jsp";
+        window.location = "index.jsp";
     }
     else
     {
-        //window.location = "index.jsp";
+        window.location = "index.jsp";
     }
 
 </script>
@@ -532,10 +484,10 @@
     </p>
     <hr align="center" width="60%">
     <p align="center" id="p2">
-         Developed & Designed by :- Hemant Sir,Ravindra Kumar Kushwaha and Sumit kr.
-
-        For any queries contact ravindrakushwahanwg@gmail.com.
-        Copyright © 2019 IET DAVV. All right reserved.
+        Vinod Thakure ,&nbsp Jayesh Punjabi &nbsp and &nbsp Tanveer Singh Bhatia.
+        <br />
+        For any queries contact 15bcs158@ietdavv.edu.in.
+        Copyright © 2018 IET DAVV. All rights reserved.
     </p>
 
 </footer>

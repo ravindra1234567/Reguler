@@ -213,7 +213,7 @@
         </div>
         <form action="upload.jsp?enrollmentno=<%= eno %>" method="get" >
 
-            <table cellpadding="4" cellspacing="1" border="1" style="border-collapse:collapse;margin-bottom: 7px;border-color: #cdcdcd" align="Center">
+            <table class="table table-bordered shadow">
                 <tr>
 
                     <th align="left">

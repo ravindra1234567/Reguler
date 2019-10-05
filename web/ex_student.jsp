@@ -62,7 +62,7 @@
         <h2>Institute Of Engineering &amp; Technology</h2>
         <div class="menu">
             <a href="student_select.jsp">Student Admit Card</a>
-            
+
             <a href="admin.jsp">Admin</a>
             <a href="index.jsp">Home</a>
         </div>
@@ -151,309 +151,303 @@
 <body>
 
     <div class="container mx-auto">
-   <br> <div id="d1">
-        
-        <hr>
-        <h3 align="center">
-            UTD Pay-Unpaid Examination Form/Print Reciept
-        </h3>
-        <hr>
+        <a href="#"><button class="btn btn-primary" style="" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
+        <br> <br> 
+        <div id="d1">
 
-        <div style="background-color: #B0C4DE;text-align: left;">
-            Student Detail
+            <hr>
+            <h3 align="center">
+                UTD Pay-Unpaid Examination Form/Print Reciept
+            </h3>
+            <hr>
+
+            <div style="background-color: #B0C4DE;text-align: left;">
+                Student Detail
+            </div>
+            <form action="ex_transaction.jsp" method="get">
+
+                <table class="table table-bordered shadow">
+                    <tr>
+
+                        <th align="left">
+                            Name of College(Code)
+                        </th>
+                        <td align="left" colspan="4">
+                            <span>
+                                INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (IET), INDORE(808)</span>
+                        </td>
+                        <td rowspan="2" align="center">
+                            <img id="ihoto" style="height:120px;width:100px;border-width:0px;"/>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <th>
+                            Registration for Examination
+                        </th>
+                        <td>
+                            <span>DEC 2018</span>
+                        </td>
+                        <th>
+                            Examination Centre(Code)
+                        </th>
+                        <td align="left" colspan="2">
+                            <span>INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (IET), INDORE(808)</span>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <th>
+                            Name of Course
+                        </th>
+                        <td align="left">
+                            <span>BE</span>
+                        </td>
+                        <th>
+                            Programme/Branch(Code)
+                        </th>
+                        <td align="left">
+                            <div><%= branch%></div>
+                        </td>
+                        <th>
+                            Semester/Year
+                        </th>
+                        <td align="left">
+                            <span><%= sem1%></span>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <th>
+                            Roll No./Enrollment No.
+                        </th>
+                        <td align="left">
+                            <span><%= eno%></span>
+                        </td>
+                        <th>
+                            Roll No.
+                        </th>
+                        <td align="left">
+                            <span><%= rollno%></span>
+                        </td>
+                        <th>
+                            Class
+                        </th>
+                        <td align="left">
+                            <span></span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            Name of Examinee
+                        </th>
+                        <td align="left">
+                            <div><%= name%></div>
+                        </td>
+
+                        <th>
+                            Status
+                        </th>
+                        <td align="left">
+                            <span><%= status1%></span>
+                        </td>
+                        <th>
+                            Gender
+                        </th>
+                        <td align="left">
+                            <span></span>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <th>
+                            Father's Name 
+                        </th>
+                        <td align="left" colspan="2">
+                            <div></div>
+                        </td>
+                        <th>
+                            Mother's Name
+                        </th>
+                        <td align="left" colspan="2">
+                            <span></span>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>
+                            Category
+                        </th>
+                        <td align="left" colspan="2">
+                            <div></div>
+                        </td>
+                        <th>
+                            Mobile NO
+                        </th>
+                        <td align="left" colspan="2">
+                            <span></span>
+                        </td>
+
+
+                    </tr>
+
+                    <tr><th>
+                            Present Address
+                        </th>
+                        <td align="left" colspan="5">
+                            <div></div>
+                        </td></tr>
+                    <tr>
+
+                        <th>
+                            City
+                        </th>
+                        <td align="left" colspan="2">
+                            <span></span>
+                        </td>
+                        <th>
+                            District
+                        </th>
+                        <td align="left" colspan="2">
+                            <span></span>
+                        </td>
+
+                    </tr>     
+                </table>
+
+                <div class="head1" style="z-index: 730;background-color: #B0C4DE;text-align: left;">
+                    Subject and Fees Description
+                </div>
+                <table class="table table-bordered shadow">
+                    <tr>
+                        <th align="left">
+                            Paper Code
+                        </th>
+                        <th align="left">
+                            Paper Description
+                        </th>
+
+                        <th align="left">
+                            Paper Type
+                        </th>
+                        <th align="left">Select Subjects</th>
+                    </tr>
+
+
+                    <%
+                        sem1 = sem1.substring(0, 1);
+                        sem_num = Integer.parseInt(sem1);
+
+                        PreparedStatement ps2 = con.prepareStatement("select distinct * from subschema inner join ex_student on subschema.subject_code=ex_student.subject_code  where ex_student.enrollment_no=? and subschema.branch=? and ex_student.reg='N' and subschema.sem=? ");
+                        ps2.setString(1, eno);
+                        ps2.setString(2, branch);
+                        ps2.setInt(3, sem_num);
+                        ResultSet rs2 = ps2.executeQuery();
+                        count = 0;
+                        if (rs2.next()) {
+                            branch = rs2.getString("branch");
+                            course = rs2.getString("course");
+                            do {
+                                count += 1;
+                                subject = (rs2.getString("subject_name")).toUpperCase();
+                                subject_code = rs2.getString("subject_code");
+                                sub_type = rs2.getString("subject_type");
+
+                                key = subject_code + sub_type;
+                                if (sub_type.equals("T")) {
+                                    sub_type1 = "Theory";
+                                } else {
+                                    sub_type1 = "Practical";
+                                }
+
+                    %>
+
+                    <tr>
+                        <td>
+                            <span><%=subject_code%></span>
+                        </td>
+                        <td>
+                            <span><%= subject%></span>
+                        </td>
+                        <td>
+                            <span><%= sub_type1%></span>
+                        </td>
+                        <td><input type="checkbox" name="sub_code" value=<%=key%> /></td>
+
+                    </tr>
+                    <%
+                        } while (rs2.next());
+                    %>                                   
+
+                    <%	} else {
+                            response.sendRedirect("index.jsp");
+                        }
+                        if (count == 1) {
+                            fee1 = 690;
+                        } else if (count == 2) {
+                            fee1 = 1165;
+                        } else if (count > 2) {
+                            fee1 = 1650;
+                        }
+
+                        String fee = Integer.toString(fee1);
+                        s.setAttribute("fee1", fee);
+
+                    %>                
+
+                </table>
+
+                <div align="center">
+                    <span style="text-align:center;">
+                        <input id="check" type="checkbox" name="chkDeclaration"/>
+                        <label><b>CERTIFIED THAT</b></label>
+                    </span>
+                </div>
+
+                <div>
+                    <span>
+                        I hereby declare that the information filled by me is true and complete as per my knowledge. If any information provided by me is found false or incorrect then i shall be disqualified by the university.
+                    </span>
+                </div>
+            <center>
+                <input type="submit" style="margin-top: 10px" id="pay" class="btn btn-success"  value="GO ->" disabled/>
+            </center><br>
+
+            <input type="hidden" name="fee1" value="<%=fee1%>">  
+            <script>
+
+                var checker = document.getElementById('check');
+
+                var sendbtn = document.getElementById('pay');
+                // when unchecked or checked, run the function
+
+                checker.onchange = function () {
+
+                if (this.checked)
+                {
+                    sendbtn.disabled = false;
+
+                }
+                else
+                {
+                    sendbtn.disabled = true;
+                }
+
+
+
+            }
+            </script> 
+        </form>
         </div>
-        <form action="challanupload.jsp">
-
-            <table class="table table-bordered">
-                <tr>
-
-                    <th align="left">
-                        Name of College(Code)
-                    </th>
-                    <td align="left" colspan="4">
-                        <span>
-                            INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (IET), INDORE(808)</span>
-                    </td>
-                    <td rowspan="2" align="center">
-                        <img id="ihoto" style="height:120px;width:100px;border-width:0px;"/>
-                    </td>
-
-                </tr>
-                <tr>
-
-                    <th>
-                        Registration for Examination
-                    </th>
-                    <td>
-                        <span>DEC 2018</span>
-                    </td>
-                    <th>
-                        Examination Centre(Code)
-                    </th>
-                    <td align="left" colspan="2">
-                        <span>INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (IET), INDORE(808)</span>
-                    </td>
-
-                </tr>
-                <tr>
-
-                    <th>
-                        Name of Course
-                    </th>
-                    <td align="left">
-                        <span>BE</span>
-                    </td>
-                    <th>
-                        Programme/Branch(Code)
-                    </th>
-                    <td align="left">
-                        <div><%= branch%></div>
-                    </td>
-                    <th>
-                        Semester/Year
-                    </th>
-                    <td align="left">
-                        <span><%= sem1%></span>
-                    </td>
-
-                </tr>
-                <tr>
-
-                    <th>
-                        Roll No./Enrollment No.
-                    </th>
-                    <td align="left">
-                        <span><%= eno%></span>
-                    </td>
-                    <th>
-                        Roll No.
-                    </th>
-                    <td align="left">
-                        <span><%= rollno%></span>
-                    </td>
-                    <th>
-                        Class
-                    </th>
-                    <td align="left">
-                        <span></span>
-                    </td>
-
-                </tr>
-                <tr>
-                    <th>
-                        Name of Examinee
-                    </th>
-                    <td align="left">
-                        <div><%= name%></div>
-                    </td>
-
-                    <th>
-                        Status
-                    </th>
-                    <td align="left">
-                        <span><%= status1%></span>
-                    </td>
-                    <th>
-                        Gender
-                    </th>
-                    <td align="left">
-                        <span></span>
-                    </td>
-
-                </tr>
-                <tr>
-
-                    <th>
-                        Father's Name 
-                    </th>
-                    <td align="left" colspan="2">
-                        <div></div>
-                    </td>
-                    <th>
-                        Mother's Name
-                    </th>
-                    <td align="left" colspan="2">
-                        <span></span>
-                    </td>
-
-                </tr>
-
-                <tr>
-
-                    <th>
-                        Category
-                    </th>
-                    <td align="left" colspan="2">
-                        <div></div>
-                    </td>
-                    <th>
-                        Mobile NO
-                    </th>
-                    <td align="left" colspan="2">
-                        <span></span>
-                    </td>
-
-
-                </tr>
-
-                <tr><th>
-                        Present Address
-                    </th>
-                    <td align="left" colspan="5">
-                        <div></div>
-                    </td></tr>
-                <tr>
-
-                    <th>
-                        City
-                    </th>
-                    <td align="left" colspan="2">
-                        <span></span>
-                    </td>
-                    <th>
-                        District
-                    </th>
-                    <td align="left" colspan="2">
-                        <span></span>
-                    </td>
-
-                </tr>     
-            </table>
-
-            <div class="head1" style="z-index: 730;background-color: #B0C4DE;text-align: left;">
-                Subject and Fees Description
-            </div>
-                    <table class="table table-bordered">
-                <tr>
-                    <th align="left">
-                        Paper Code
-                    </th>
-                    <th align="left">
-                        Paper Description
-                    </th>
-
-                    <th align="left">
-                        Paper Type
-                    </th>
-                    <th align="left">Select Subjects</th>
-                </tr>
-
-
-                <%
-                    sem1 = sem1.substring(0, 1);
-                    sem_num = Integer.parseInt(sem1);
-
-                    PreparedStatement ps2 = con.prepareStatement("select distinct * from subschema inner join ex_student on subschema.subject_code=ex_student.subject_code  where ex_student.enrollment_no=? and subschema.branch=? and ex_student.reg='N' and subschema.sem=? ");
-                    ps2.setString(1, eno);
-                    ps2.setString(2, branch);
-                    ps2.setInt(3, sem_num);
-                    ResultSet rs2 = ps2.executeQuery();
-                    count = 0;
-                    if (rs2.next()) {
-                        branch = rs2.getString("branch");
-                        course = rs2.getString("course");
-                        do {
-                            count += 1;
-                            subject = (rs2.getString("subject_name")).toUpperCase();
-                            subject_code = rs2.getString("subject_code");
-                            sub_type = rs2.getString("subject_type");
-
-                            key = subject_code + sub_type;
-                            if (sub_type.equals("T")) {
-                                sub_type1 = "Theory";
-                            } else {
-                                sub_type1 = "Practical";
-                            }
-
-                %>
-
-                <tr>
-                    <td>
-                        <span><%=subject_code%></span>
-                    </td>
-                    <td>
-                        <span><%= subject%></span>
-                    </td>
-                    <td>
-                        <span><%= sub_type1%></span>
-                    </td>
-                    <td><input type="checkbox" name="sub_code" value=<%=key%> /></td>
-
-                </tr>
-                <%
-                    } while (rs2.next());
-                %>                                   
-
-                <%	} else {
-                        response.sendRedirect("index.jsp");
-                    }
-                    if (count == 1) {
-                        fee1 = 690;
-                    } else if (count == 2) {
-                        fee1 = 1165;
-                    } else if (count > 2) {
-                        fee1 = 1650;
-                    }
-
-                    String fee = Integer.toString(fee1);
-                    s.setAttribute("fee1", fee);
-
-                %>                
-
-            </table>
-
-            <div align="center">
-                <span style="text-align:center;">
-                    <input id="check" type="checkbox" name="chkDeclaration"/>
-                    <label><b>CERTIFIED THAT</b></label>
-                </span>
-            </div>
-
-            <div>
-                <span>
-                    I hereby declare that the information filled by me is true and complete as per my knowledge. If any information provided by me is found false or incorrect then i shall be disqualified by the university.
-                </span>
-            </div>
-
-    </div>
 </div>
-<center>
-
-    <input type="submit" style="margin-top: 10px" id="pay" class="btn btn-success"  value="GO ->" disabled/>
-    </center><br>
-<!--  <div class="footer">
-<p> copyright IET, DAVV</p>
-<p> Designed and Developed By :- </p>
-</div>-->
-<input type="hidden" name="fee1" value="<%=fee1%>">  
-<script>
-
-    var checker = document.getElementById('check');
-
-    var sendbtn = document.getElementById('pay');
-    // when unchecked or checked, run the function
-
-    checker.onchange = function () {
-
-        if (this.checked)
-        {
-            sendbtn.disabled = false;
-
-        }
-        else
-        {
-            sendbtn.disabled = true;
-        }
-
-
-
-    }
-</script> 
-</form> 
-
 </body>
-</html>
-
 <%
 } else {
 %>
@@ -484,10 +478,10 @@
     </p>
     <hr align="center" width="60%">
     <p align="center" id="p2">
-        Vinod Thakure ,&nbsp Jayesh Punjabi &nbsp and &nbsp Tanveer Singh Bhatia.
-        <br />
-        For any queries contact 15bcs158@ietdavv.edu.in.
-        Copyright © 2018 IET DAVV. All rights reserved.
+        Developed & Designed by :- Hemant Sir,Ravindra Kumar Kushwaha and Sumit kr.
+
+        For any queries contact ravindrakushwahanwg@gmail.com.
+        Copyright © 2019 IET DAVV. All right reserved.
     </p>
 
 </footer>

@@ -704,6 +704,7 @@
 
                 <button class="accordion" style="top:860px;position: absolute;"  id="bt7"><a  href="clerk_ex1.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Clerk Verification</a></button>
                 <button class="accordion" style="top:910px;position: absolute;"  id="bt7"> <a href="ex_show_permission.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Show Special Permission Ex-Student </a></button>
+                <button class="accordion" style="top:960px;position: absolute;"  id="bt7"> <a href="download_reg_csv.jsp" style="color: white;font-size: 20px;font-family: sans-serif;">Download Regular(All CSV files) </a></button>
             </div>
         
         <script>
@@ -757,7 +758,7 @@
         </script>
 
     </body>
-    <footer style="position: relative;top:870px;">
+    <footer style="position: relative;top:900px;">
         <p align="center" id="p1">
             Exam Registration Portal
         </p>

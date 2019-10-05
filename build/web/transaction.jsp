@@ -424,17 +424,17 @@
                     <td><%=name%></td>
                 </tr>
 
-                <tr><th>Father Name:</th>
-                    <td> </td>
+                <tr><th>Branch:</th>
+                    <td> <%= branch %> </td>
                 </tr>
 
-                <tr><th>Mother Name:
+                <tr><th>Semester:
                     </th>
-                    <td colspan="2"> </td>
+                    <td colspan="2"><%= sem  %> </td>
                 </tr>
 
-                <tr><th>Gender:</th>
-                    <td colspan="2"> </td>
+                <tr><th>Class:</th>
+                    <td colspan="2"><%= year %> </td>
                 </tr>
                 <tr>
                     <th>Status:</th>
@@ -537,7 +537,7 @@
 <!--<div style="width: 1400px;">-->
     <center>
         <input id="pay" style="margin-top: 10px" type="button" onclick="window.print()" value="Print" class="btn btn-success"/>
-        <button class="btn btn-danger"> <a href="index.jsp">Exit</a></button>
+        <button class="btn btn-danger"> <a href="index.jsp" style="color:white;">Exit</a></button>
     </center>
 <!--</div>-->
 </p>

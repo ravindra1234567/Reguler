@@ -93,6 +93,7 @@
         <div class="menu">
             <a href="admin.jsp">Admin</a>
             <a href="index.jsp">Home</a>
+            <a href="add_subject_reg.jsp">Add Subject</a>
         </div>
     </header>
     <body>

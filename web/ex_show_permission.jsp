@@ -20,14 +20,7 @@
 
     </head>
     <body> 
-        <header>
-            <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
-            <h2>Institute of Engineering &amp; Technology</h2>
-            <div class="menu">
-            <a href="admin.jsp">Admin</a>
-            <a href="index.jsp">Home</a>
-        </div>
-        </header>
+   <jsp:include page="header.html" />
         <div class="container-fluid">
 
             <%! String branch;
@@ -119,6 +112,7 @@
                 </table> 
             </div>
         </div>
+                <jsp:include page="footer.html" />
         <script>
 
             $(document).ready(function () {
@@ -131,17 +125,4 @@
             });
         </script>
     </body>
-    <footer>
-        <p align="center" id="p1">
-            Exam Registration Portal
-        </p>
-        <hr align="center" width="60%">
-        <p align="center" id="p2">
-            Developed & Designed by :- Hemant Sir,Ravindra Kumar Kushwaha and Sumit kr.
-
-            For any queries contact ravindrakushwahanwg@gmail.com.
-            Copyright © 2019 IET DAVV. All right reserved.
-        </p>
-
-    </footer>
 </html>

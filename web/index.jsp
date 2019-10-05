@@ -87,16 +87,9 @@
             }
         </style>
     </head>
-    <header>
-        <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
-        <h2>Institute of Engineering &amp; Technology</h2>
-        <div class="menu">
-            <a href="admin.jsp">Admin</a>
-            <a href="index.jsp">Home</a>
-            <a href="add_subject_reg.jsp">Add Subject</a>
-        </div>
-    </header>
+    
     <body>
+        <jsp:include page="header.html" />
      <div class="container">
         <div class="font-weight-bold col-lg-12  shadow-lg sign-up" >
 			<form class="sign-up" id="f1" name="demo1">
@@ -198,7 +191,7 @@
 
 			</div>
 	</div>
-     </div>
+     <jsp:include page="footer.html" />
         <script>
             
                  $("select#student-class").change(function () {
@@ -221,17 +214,5 @@
 		});
         </script>
 </body>
-<footer>
-    <p align="center" id="p1">
-        Exam Registration Portal
-    </p>
-    <hr align="center" width="60%">
-    <p align="center" id="p2">
-        Developed & Designed by :- Hemant Sir,Ravindra Kumar Kushwaha and Sumit kr.
 
-        For any queries contact ravindrakushwahanwg@gmail.com.
-        Copyright © 2019 IET DAVV. All right reserved.
-    </p>
-
-</footer>
 </html>

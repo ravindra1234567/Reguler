@@ -12,13 +12,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <jsp:include page="bootstrap_file.jsp" /> 
         <style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 98%;
-    margin-left: 1%;
-    margin-right: 1%;
-}
+
 th{background-color: #e4e4e0;}
 td, th {
     border: 1px solid;
@@ -30,17 +24,9 @@ td, th {
 </style>
         <title>Payment Status</title>
     </head>
-    <header>
-<a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
-<h2>Institute of Engineering &amp; Technology</h2>
-<div class="menu">
-<!--  <a href="student_select.jsp">Student_Admit_Card</a>-->
- <!-- <a href="Register_sel.jsp">Student_Registration</a>-->
-  <a href="admin.jsp">Admin</a>
-  <a href="index.jsp">Home</a>
-</div>
-</header>
-    <body style="margin-bottom: 100px;">
+    <body>
+        <jsp:include page="header.html" />
+        <div class="container-fluid">
         <%! HttpSession session1;
         String uname,uname1;
         String subject_name,subject_type,subject_code;
@@ -136,7 +122,8 @@ td, th {
            
         %>
         <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
-           <table border radius="1" style="border-collapse:collapse;margin-top: 20px;" width="800px" >
+           <table class="table table-bordered table-responsive mt-2" >
+               <thead>
                <tr>
                    
               
@@ -152,6 +139,7 @@ td, th {
                    <th><center>PAYMENT STATUS</center></th>
                    <th><center>DELETE</center></th>
                </tr>
+         </thead>
         <%       
           int i = 1;
             while(rs.next()){
@@ -165,6 +153,7 @@ td, th {
                  subject_type=(rs.getString("ex_student.subject_type")).toUpperCase();
          
            %>
+           <tbody>
            <tr><td><center><%= i %></center></td>
            <td><center><%=eno%></center></td>
            <td><center><%=rno%></center></td>
@@ -177,7 +166,7 @@ td, th {
            <td><center><%= payment_status %></center></td>
            <td><center><a href="delete_ex.jsp?eno=<%= eno %>&subject=<%= subject_code %>&subject_type=<%= subject_type %>" >DELETE</a></center></td>
            </tr>
-           
+           </tbody>
            <%  i = i+1; }
             }
                 else    
@@ -190,7 +179,8 @@ catch(Exception e){
                          out.println(e+"skn");}
    %>
            </table>
-    </center>   
+    </div>
+    <jsp:include page="footer.html" />
     </body>
     
 </html>

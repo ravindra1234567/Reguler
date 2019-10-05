@@ -64,7 +64,7 @@ td, th {
         ResultSet rs;
           
         String photourl;
-        String transection_id;
+        String transection_id;  
         %>
          <% 
                ServletContext context=getServletContext();  

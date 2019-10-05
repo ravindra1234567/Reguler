@@ -31,18 +31,11 @@ td, th {
 
 </style>
         <title>Delete Student</title>
+        
     </head>
-    <header>
-<a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
-<h2>Institute Of Engineering &amp; Technology</h2>
-<div class="menu">
-<!--  <a href="student_select.jsp">Student_Admit_Card</a>-->
- <!-- <a href="Register_sel.jsp">Student_Registration</a>-->
-  <a href="admin.jsp">Admin</a>
-  <a href="index.jsp">Home</a>
-</div>
-</header>
+
     <body style="margin-bottom: 100px;">
+        
         <%! HttpSession session1;
         String uname,uname1;
         String pass,pass1;
@@ -127,7 +120,8 @@ td, th {
            
         %>
         
-     
+     <jsp:include page="header.html" />
+     <div class="container">
          <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
            <table border radius="1" style="border-collapse:collapse;margin-top: 20px;" width="800px" >
                <tr>
@@ -176,7 +170,8 @@ catch(Exception e){
                          out.println(e+"skn");}
    %>
            </table>
-    </center>   
+           </div>
+    <jsp:include page="footer.html" /> 
     </body>
     
 </html>

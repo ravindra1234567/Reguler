@@ -30,16 +30,9 @@
         <link rel="stylesheet" type="text/css" href="css/button.css">
          <link rel="stylesheet" type="text/css" href="css/index.css">
     </head>
-      <header>
-<a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
-<h2>Institute Of Engineering &amp; Technology</h2>
-<div class="menu">
-<!--  <a href="studentselect.jsp">Student_Admit_Card</a>-->
-  <a href="admin.jsp">Admin</a>
-  <a href="index.jsp">Home</a>
-</div>
-</header>
+      
     <body>
+        <jsp:include page="header.html" />
       <a href="#"><button class="btn btn-primary" style="margin-left: 10px;" onclick=" window.history.back();"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button></a>
 	
     <center>
@@ -84,18 +77,7 @@
     
         </table>
     </center>
+    <jsp:include page="footer.html" />
     </body>
-    <footer style="margin-top:7%;">
-<p align="center" id="p1">
-Exam Registration Portal
-</p>
-<hr align="center" width="60%">
-<p align="center" id="p2">
-Developed & Designed by :- Vinod Thakure , Jayesh Punjabi and Tanveer Singh Bhatia.
 
-For any queries contact 15bcs158@ietdavv.edu.in.
-Copyright © 2017 IET DAVV. All right reserved.
-</p>
-    
-</footer>
 </html>

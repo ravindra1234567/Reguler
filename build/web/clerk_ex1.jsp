@@ -84,18 +84,12 @@
 </head>
 <body>
 
-    <header>
-        <a href="index.jsp"><img id="logo" src="input/logo.png" alt="Institute of Engineering &amp; Technology"></a>
-        <h2>Institute of Engineering &amp; Technology</h2>
-        <div class="menu">
-            <a href="admin.jsp">Admin</a>
-            <a href="index.jsp">Home</a>
-        </div>
-    </header>
-    <div class="container">
+    <jsp:include page="header.html" />
+    <div class="container-fluid">
+        <button  onclick="window.history.back();" style="float:left;margin-top: 10px;" class="btn btn-primary" ><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button>
         <form action="finalverify_ex.jsp" method="post">
             <div align="right" style="margin-right: 5%;">
-                <button  onclick="goBack();" style="float:left;margin-top: 10px;" class="btn btn-primary" ><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Go Back</button>
+                
 
                 <input id="pay"  type="button" onclick="window.print()" value="   Print  " style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;"  class="btn btn-success"/>
                 <input type="button" onclick='selectAll()' value="Select All" style="margin-top: 10px;padding-top: 10px;padding-bottom: 10px;" class="btn btn-success"/>
@@ -217,21 +211,9 @@
             </div> 
         </form>
     </div>
+<jsp:include page="footer.html" />
 
-
-    <footer>
-        <p align="center" id="p1">
-            Exam Registration Portal
-        </p>
-        <hr align="center" width="60%">
-        <p align="center" id="p2">
-            Developed & Designed by :- Hemant Sir,Ravindra Kumar Kushwaha and Sumit kr.
-
-            For any queries contact ravindrakushwahanwg@gmail.com.
-            Copyright © 2019 IET DAVV. All right reserved.
-        </p>
-
-    </footer>
+    
     <script>
 
         var checker = document.getElementById('check1');
